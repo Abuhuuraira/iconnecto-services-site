@@ -11,8 +11,10 @@ This is a responsive portfolio and service website for **iConnecto**, a professi
 
 ## Technology Stack
 
-- HTML5
-- CSS3
+- HTML5  
+- CSS3  
+- Java
+
 
 ## License
 
