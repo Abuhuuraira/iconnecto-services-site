@@ -81,24 +81,26 @@ We help businesses of all sizes succeed while optimizing costs across a wide ran
 <section class="contact-form-section">
   <h2>Send Us a Message</h2>
   <p>Have a question or need help? Fill out the form below and we'll get back to you shortly.</p>
-  
- <form class="contact-form" action="https://formspree.io/f/abuhurairabutt103@gmail.com" method="POST">
 
-    <div class="form-group">
-      <input type="text" name="name" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-      <input type="email" name="email" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-      <input type="text" name="subject" placeholder="Subject" required>
-    </div>
-    <div class="form-group">
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
-    <button type="submit" class="form-submit-btn">Send Message</button>
-  </form>
+  <form class="contact-form" id="contactForm" method="POST">
+  <div class="form-group">
+    <input type="text" name="name" placeholder="Your Name" required>
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Your Email" required>
+  </div>
+  <div class="form-group">
+    <input type="text" name="subject" placeholder="Subject" required>
+  </div>
+  <div class="form-group">
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  </div>
+  <button type="submit" class="form-submit-btn">Send Message</button>
+</form>
+
+  <div id="response-message"></div>
 </section>
+
 
 
 
@@ -190,6 +192,35 @@ We help businesses of all sizes succeed while optimizing costs across a wide ran
       });
     }
   });
+
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message')
+    };
+
+    const response = await fetch('http://localhost:5000/send', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      alert('Email sent successfully!');
+      form.reset();
+    } else {
+      alert('Something went wrong.');
+    }
+  });
+
 </script>
 
   
