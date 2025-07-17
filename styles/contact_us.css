@@ -97,6 +97,21 @@ body, html {
 .hamburger {
   display: none; /* hide by default (desktop) */
 }
+.nav-link {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-link.active {
+  color: purple;
+  font-weight: bold;
+  border-bottom: 2px solid purple; /* optional underline effect */
+}
+
+
+
+
 
 /* Show hamburger and hide nav-links on mobile */
 @media (max-width: 768px) {

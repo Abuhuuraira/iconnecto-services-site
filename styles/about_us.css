@@ -57,6 +57,42 @@ body, html {
   color: #ccc;
 }
 
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logo-tagline {
+  font-size: 12px;
+  color: gray;
+}
+
+
+
+
+
 .nav-links ul {
   list-style: none;
   display: flex;
@@ -97,6 +133,23 @@ body, html {
 .hamburger {
   display: none; /* hide by default (desktop) */
 }
+
+.nav-link {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-link.active {
+  color: purple;
+  font-weight: bold;
+  border-bottom: 2px solid purple; /* optional underline effect */
+}
+
+
+
+
+
 
 
 /* Show hamburger and hide nav-links on mobile */

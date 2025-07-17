@@ -10,12 +10,16 @@
 </head>
 <body>
 <header class="navbar">
-    <div class="logo">
-      <img src="/images/iconnecto_logo.jpg" alt="iConnecto Logo" class="logo-img" />
-      <div class="logo-text-block">
-        <div class="logo-text">iconnecto</div>
-        <div class="logo-tagline">Driven to Deliver, Connected to You</div>
-      </div>
+    <a href="/pages/home.html" class="logo-link">
+  <div class="logo">
+    <img src="/images/iconnecto_logo.jpg" alt="iConnecto Logo" class="logo-img" />
+    <div class="logo-text-block">
+      <div class="logo-text">iconnecto</div>
+      <div class="logo-tagline">Driven to Deliver, Connected to You</div>
+    </div>
+  </div>
+</a>
+
 <!-- Hamburger Icon (for small screens) -->
 <div class="hamburger" id="hamburger">
   <i class="fas fa-bars"></i>
@@ -25,21 +29,19 @@
 
 
     </div>
-    <nav class="nav-links">
-      <ul>
-        <li><a href="/pages/home.html">Home</a></li>
-        <li><a href="/pages/about_us.html">About Us</a></li>
-        <li><a href="/pages/services.html">Services</a></li>
-        <li><a href="#">Blogs</a></li>
-        
-        <li><a href="/pages/contact_us.html">Contact Us</a></li>
-        
-        <a href="https://wa.me/923484243795" target="_blank">
-  <i class="fab fa-whatsapp"></i> +92 348 4243795
-</a>
+     <nav class="nav-links">
+  <ul>
+    <li><a href="/pages/home.html" class="nav-link">Home</a></li>
+    <li><a href="/pages/about_us.html" class="nav-link">About Us</a></li>
+    <li><a href="/pages/services.html" class="nav-link">Services</a></li>
+    <li><a href="#" class="nav-link">Blogs</a></li>
+    <li><a href="/pages/contact_us.html" class="nav-link">Contact Us</a></li>
 
-      </ul>
-    </nav>
+    <a href="https://wa.me/923484243795" target="_blank">
+      <i class="fab fa-whatsapp"></i> +92 348 4243795
+    </a>
+  </ul>
+</nav>
   </header>
 
 
@@ -298,6 +300,24 @@
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('show');
   });
+// active nav bar //
+
+   document.addEventListener("DOMContentLoaded", function () {
+    const links = document.querySelectorAll('.nav-link');
+    const currentPath = window.location.pathname;
+
+    links.forEach(link => {
+      const linkPath = link.getAttribute('href');
+
+      // Match full path (like /pages/home.html)
+      if (linkPath === currentPath) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const counters = document.querySelectorAll('.counter');
 
