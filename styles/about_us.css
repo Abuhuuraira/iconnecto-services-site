@@ -57,6 +57,10 @@ body, html {
   color: #ccc;
 }
 
+
+/* active nav bar*/
+
+
 .logo-link {
   text-decoration: none;
   color: inherit;
@@ -64,14 +68,16 @@ body, html {
   align-items: center;
 }
 
+
 .logo {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .logo-img {
   height: 50px;
-  margin-right: 10px;
+  
 }
 
 .logo-text-block {
