@@ -954,3 +954,62 @@ footer {
 }
 
 
+/* book a meeting button */
+
+.floating-book-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #8b5cf6;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  z-index: 9999;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.floating-book-btn:hover {
+  background: #7c3aed;
+  transform: scale(1.05);
+}
+    /* Animation for the calendar icon */
+.floating-book-btn svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.floating-book-btn:hover svg {
+  transform: rotate(10deg) scale(1.1);
+}
+
+
+/* Tablet (medium) */
+@media (max-width: 768px) {
+  .floating-book-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+    bottom: 16px;
+    right: 16px;
+    gap: 6px;
+  }
+}
+
+/* Mobile (small) */
+@media (max-width: 480px) {
+  .floating-book-btn {
+    padding: 12px 18px;
+    font-size: 14px;
+    bottom: 14px;
+    right: 14px;
+    border-radius: 8px;
+    gap: 8px;
+  }
+}
