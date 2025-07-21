@@ -3,120 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>iConnecto Meeting Booking</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      background: black;
-      color: #ffffff;
-    }
-
-    .container {
-      padding: 100px 20px;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto 32px;
-      color: #e5e7eb;
-    }
-
-     .button-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .calendly-button {
-      padding: 14px 32px;
-      background-color: #8b5cf6;
-      color: white;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .calendly-button:hover {
-      background-color: #7c3aed;
-      transform: translateY(-2px);
-    }
-
-    .calendly-button svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* Modal styles */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal iframe {
-      width: 90vw;
-      height: 90vh;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-      z-index: 1001;
-    }
-
-    @media(max-width: 768px) {
-      .modal iframe {
-        width: 95vw;
-        height: 95vh;
-      }
-
-      .calendly-button {
-        font-size: 16px;
-        padding: 12px 28px;
-      }
-    }
-  </style>
+  <title>Book a Meeting | iConnecto</title>
+  <link rel="stylesheet" href="/styles/book.css">
 </head>
 <body>
 
+  <!-- Hero Section -->
   <div class="container">
-    <h1>Let's Connect!</h1>
-    <p>
+    <div class="logo-block">
+      <img src="/images/iconnecto_logo.jpg" alt="iConnecto Logo" class="logo-img" />
+      <div class="text-block">
+        <h1 class="logo-title">iConnecto</h1>
+        <p class="tagline">Driven to Deliver, Connected to You</p>
+      </div>
+    </div>
+
+    <p class="description">
       Schedule a free consultation with iConnecto to discuss your project, ideas, or questions.<br/>
       Meetings are hosted via Google Meet.
     </p>
-     <div class="button-wrapper">
+
+    <div class="button-wrapper">
       <button class="calendly-button" onclick="openModal()">
         <!-- Calendar SVG Icon -->
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -131,20 +38,10 @@
   <!-- Modal -->
   <div id="calendarModal" class="modal">
     <div class="close-btn" onclick="closeModal()">✖</div>
-    <iframe src="https://calendly.com/abuhurairabutt103/iconnecto-consultation"></iframe>
+    <iframe src="https://calendly.com/abuhurairabutt103/iconnecto-consultation" frameborder="0"></iframe>
   </div>
 
-  <script>
-    function openModal() {
-      document.getElementById('calendarModal').style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      document.getElementById('calendarModal').style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
-  </script>
+  <script src="/js/book.js"></script>
 
 </body>
 </html>
