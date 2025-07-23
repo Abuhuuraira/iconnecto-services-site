@@ -492,13 +492,13 @@ body, html {
 
 .services-left h2 span,
 .services-left h3 span {
-  color: #e91e63;
+  color: purple;
 }
 
 .get-in-touch-link {
   display: inline-block;
   margin-top: 20px;
-  color: #ff5722;
+  color: black;
   font-weight: 600;
   text-decoration: none;
   transition: 0.3s ease;
@@ -552,7 +552,7 @@ body, html {
 }
 
 .service-box a {
-  color: #ff5722;
+  color: black;
   font-weight: bold;
   font-size: 14px;
   text-decoration: none;
