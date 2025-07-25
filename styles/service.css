@@ -422,6 +422,15 @@ body, html {
     font-size: 13px;
   }
 }
+/* for smoth scrol on service card */
+#carouselTrack {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* for iOS smoothness */
+}
+#carouselContainer {
+  touch-action: pan-y;
+  -ms-touch-action: pan-y; /* For older Microsoft devices */
+}
 
 
 

@@ -58,7 +58,7 @@ const container = document.getElementById("carouselContainer");
 const leftArrow = document.getElementById("leftArrow");
 const rightArrow = document.getElementById("rightArrow");
 
-let scrollSpeed = 0.5;
+let scrollSpeed = 2;
 let isDragging = false;
 let isPaused = false;
 let startX, scrollLeft;
@@ -120,7 +120,8 @@ track.addEventListener("touchmove", (e) => {
   const x = e.touches[0].pageX - track.offsetLeft;
   const walk = (x - startX) * 2;
   track.scrollLeft = scrollLeft - walk;
-});
+}, { passive: true });
+
 track.addEventListener("touchend", () => {
   isDragging = false;
 });
