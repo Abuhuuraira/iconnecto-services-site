@@ -804,3 +804,15 @@ footer {
     gap: 8px;
   }
 }
+
+/* responsivness for copyright text */
+  
+@media (max-width: 600px) {
+  .footer-bottom {
+    padding-bottom: 50px; /* Space to prevent overlap */
+  }
+
+  .floating-book-btn {
+    bottom: 20px; /* Keep the button above the footer space */
+  }
+}

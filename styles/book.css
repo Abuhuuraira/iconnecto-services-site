@@ -19,6 +19,7 @@ body {
       max-width: 700px;
       width: 90%;
       text-align: center;
+      
     }
 
     .logo-block {
@@ -371,3 +372,4 @@ body {
     right: 16px;
   }
 }
+
