@@ -11,6 +11,108 @@ body, html {
    overflow-x: hidden;
 }
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ background: #1f1b2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeInBackground 1s ease-in-out;
+}
+.preloader-text {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  opacity: 0;
+  animation: textFade 2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Fade animation for text */
+@keyframes textFade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.preloader-logo {
+  width: 120px;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: logoZoomFade 2s ease-out forwards;
+}
+
+/* Keyframes */
+@keyframes logoZoomFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInBackground {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* 🔹 Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+  .preloader-logo {
+    width: 100px; /* Increase size for visibility */
+  }
+
+  .preloader-text {
+    font-size: 22px; /* Bigger text for readability */
+  }
+}
+
+/* 🔹 Tablets (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .preloader-logo {
+    width: 90px;
+  }
+
+  .preloader-text {
+    font-size: 20px;
+  }
+}
+
+/* 🔹 Desktops (769px and above) */
+@media (min-width: 769px) {
+  .preloader-logo {
+    width: 100px;
+  }
+
+  .preloader-text {
+    font-size: 24px;
+  }
+}
+
+
 /* Navbar */
 .navbar {
   position: sticky; /* ✅ Changed from absolute */

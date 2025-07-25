@@ -1,3 +1,29 @@
+
+// preloader //
+ window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+    const mainContent = document.getElementById('main-content');
+    const bookBtn = document.querySelector('.floating-book-btn');
+
+    setTimeout(() => {
+      preloader.style.transition = 'opacity 1s ease';
+      preloader.style.opacity = '0';
+
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        mainContent.style.display = 'block';
+        if (bookBtn) {
+          bookBtn.style.display = 'block';
+          bookBtn.style.opacity = '1';
+        }
+      }, 1000);
+    }, 2500); // Adjust for how long logo stays
+  });
+
+
+
+
+
 // active nav bar //
 
    document.addEventListener("DOMContentLoaded", function () {
