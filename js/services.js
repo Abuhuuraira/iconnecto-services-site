@@ -58,7 +58,7 @@ const container = document.getElementById("carouselContainer");
 const leftArrow = document.getElementById("leftArrow");
 const rightArrow = document.getElementById("rightArrow");
 
-let scrollSpeed = 2;
+let scrollSpeed = 1.5;
 let isDragging = false;
 let isPaused = false;
 let startX, scrollLeft;
