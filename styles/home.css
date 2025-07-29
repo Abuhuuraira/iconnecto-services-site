@@ -138,7 +138,7 @@ body, html {
 
 /* Navbar */
 .navbar {
-  position: sticky; /* ✅ Changed from absolute */
+  position: fixed; /* ✅ Changed from absolute */
   top: 0;
   width: 100%;
   padding: 20px 40px;
@@ -149,6 +149,7 @@ body, html {
   color: white;
   background-color: #000; /* Optional: prevent transparency when fixed */
 }
+
 
 
 .logo {
@@ -312,6 +313,7 @@ body, html {
     position: relative;
     flex-wrap: wrap;
     padding: 15px 20px;
+    position: fixed;
   }
 
   .logo {
