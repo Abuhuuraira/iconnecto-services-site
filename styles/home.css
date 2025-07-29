@@ -670,7 +670,7 @@ body, html {
   .services {
     flex-direction: column;
     gap: 40px;
-    padding: 60px 20px;
+    padding: 60px 0;
   }
 
   .services-left,
@@ -685,7 +685,7 @@ body, html {
 @media (max-width: 1024px) {
   .services {
     flex-direction: column;
-    padding: 50px 40px;
+    padding: 50px 0;
     gap: 50px;
   }
 
@@ -717,7 +717,7 @@ body, html {
 /* Mobile Devices */
 @media (max-width: 768px) {
   .services {
-    padding: 40px 20px;
+    padding: 40px 0;
     gap: 40px;
   }
 
@@ -758,7 +758,7 @@ body, html {
 /* Extra Small Devices */
 @media (max-width: 480px) {
   .services {
-    padding: 30px 15px;
+    padding: 30px 0;
   }
 
   .service-box {
@@ -1048,12 +1048,14 @@ body, html {
   .testimonial-container {
     flex-direction: column;
     align-items: center;
+    margin-bottom: 0;
   }
 }
 
 footer {
   background-color: #000;
   padding: 60px 20px 30px;
+  
 }
 
 .footer-container {
@@ -1192,6 +1194,7 @@ footer {
     flex-direction: column;
     gap: 30px;
     padding: 0 20px;
+    
   }
 
   .footer-section {
@@ -1295,6 +1298,7 @@ footer {
 
   .footer-bottom {
     font-size: 12px;
+    
   }
 }
 
