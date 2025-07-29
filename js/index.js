@@ -94,4 +94,27 @@ testimonialCards.forEach(card => {
   testimonialObserver.observe(card);
 });
 
+// disappear the book a meeting button at the button
 
+  const floatingBtn = document.querySelector('.floating-book-btn');
+  const footerTrigger = document.getElementById('footer-trigger');
+
+  if (floatingBtn && footerTrigger) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        floatingBtn.style.display = entry.isIntersecting ? 'none' : 'flex';
+      });
+    });
+
+    observer.observe(footerTrigger);
+  }
+
+if (floatingBtn && footerTrigger) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      floatingBtn.classList.toggle('hidden', entry.isIntersecting);
+    });
+  });
+
+  observer.observe(footerTrigger);
+}

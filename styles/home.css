@@ -1338,29 +1338,58 @@ footer {
   transform: rotate(10deg) scale(1.1);
 }
 
+/* Default styles already defined above for book a meeting */
 
-/* Tablet (medium) */
-@media (max-width: 768px) {
+@media (max-width: 749px) {
   .floating-book-btn {
-    padding: 10px 14px;
-    font-size: 13px;
-    bottom: 16px;
-    right: 16px;
-    gap: 6px;
-  }
-}
-
-/* Mobile (small) */
-@media (max-width: 480px) {
-  .floating-book-btn {
-    padding: 12px 18px;
-    font-size: 14px;
+    position: fixed;
     bottom: 14px;
     right: 14px;
-    border-radius: 8px;
-    gap: 8px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    font-size: 0;
+    border-radius: 50%;
+    background-color: #5d3fd3;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .floating-book-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .floating-book-btn::after {
+    content: "Book a Meeting";
+    position: absolute;
+    right: 60px;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .floating-book-btn:hover::after {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+
+
+
 
 /* responsivness for copyright text */
   
@@ -1373,3 +1402,14 @@ footer {
     bottom: 20px; /* Keep the button above the footer space */
   }
 }
+.floating-book-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
+.floating-book-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
