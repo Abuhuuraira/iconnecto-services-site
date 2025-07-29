@@ -11,48 +11,71 @@ body, html {
    overflow-x: hidden;
 }
 
+
+
 #preloader {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
- background: #1f1b2e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  right: 0;
+  bottom: 0;
+  background: #000; /* or any background you prefer */
   z-index: 9999;
-  animation: fadeInBackground 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s ease;
 }
+
+#preloader.slide-up {
+  transform: translateY(-100%);
+}
+
+#main-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#main-content.fade-in {
+  opacity: 1;
+}
+
 .preloader-text {
   margin-top: 10px;
   font-size: 24px;
   font-weight: bold;
   color: white;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Courier New', monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0ch;
   opacity: 0;
-  animation: textFade 2s ease forwards;
-  animation-delay: 0.5s;
+  transition: opacity 0.3s ease;
 }
 
-/* Fade animation for text */
-@keyframes textFade {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes typing {
+  from { width: 0ch; }
+  to { width: 9ch; } /* Adjust based on text length */
 }
+
 
 .preloader-logo {
   width: 120px;
   height: auto;
   opacity: 0;
   transform: scale(0.8);
-  animation: logoZoomFade 2s ease-out forwards;
+  animation: logoZoomFade 2s ease-out forwards, glowPulse 3s infinite alternate;
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.3); /* Soft white glow */
+}
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px 6px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 25px 10px rgba(255, 255, 255, 0.5);
+  }
 }
 
 /* Keyframes */
@@ -1304,13 +1327,37 @@ footer {
 
 /* book a meeting button */
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1f1b2e;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+#preloader.slide-up {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+
+
+
+
+/* Book a Meeting button */
 .floating-book-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: #8b5cf6;
   color: white;
-  display: flex;
+  display: none; /* hidden by default */
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
@@ -1320,23 +1367,20 @@ footer {
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
   z-index: 9999;
-  transition: background 0.3s ease, transform 0.2s ease;
+  opacity: 0;
+  transition: background 0.3s ease, transform 0.2s ease, opacity 0.5s ease;
 }
 
 .floating-book-btn:hover {
   background: #7c3aed;
   transform: scale(1.05);
 }
-    /* Animation for the calendar icon */
-.floating-book-btn svg {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease;
+
+.floating-book-btn.show {
+  display: flex;
+  opacity: 1;
 }
 
-.floating-book-btn:hover svg {
-  transform: rotate(10deg) scale(1.1);
-}
 
 /* Default styles already defined above for book a meeting */
 

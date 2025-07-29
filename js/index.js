@@ -1,82 +1,82 @@
+// Preloader
+window.addEventListener('load', function () {
+  const preloader = document.getElementById('preloader');
+  const mainContent = document.getElementById('main-content');
+  const bookBtn = document.querySelector('.floating-book-btn');
+  const typingText = document.querySelector('.preloader-text');
 
-// preloader //
- window.addEventListener('load', function () {
-    const preloader = document.getElementById('preloader');
-    const mainContent = document.getElementById('main-content');
-    const bookBtn = document.querySelector('.floating-book-btn');
+  setTimeout(() => {
+    typingText.textContent = 'iConnecto';
+    typingText.style.opacity = '1';
+    typingText.style.animation = 'typing 2s steps(9, end) forwards';
+  }, 1500);
+
+  setTimeout(() => {
+    mainContent.style.display = 'block';
+    mainContent.classList.add('fade-in');
+
+    preloader.classList.add('slide-up');
 
     setTimeout(() => {
-      preloader.style.transition = 'opacity 1s ease';
-      preloader.style.opacity = '0';
+      preloader.style.display = 'none';
 
-      setTimeout(() => {
-        preloader.style.display = 'none';
-        mainContent.style.display = 'block';
-        if (bookBtn) {
-          bookBtn.style.display = 'block';
-          bookBtn.style.opacity = '1';
-        }
-      }, 1000);
-    }, 2500); // Adjust for how long logo stays
-  });
-
-
-
-
-
-// active nav bar //
-
-   document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll('.nav-link');
-    const currentPath = window.location.pathname;
-
-    links.forEach(link => {
-      const linkPath = link.getAttribute('href');
-
-      // Match full path (like /pages/home.html)
-      if (linkPath === currentPath) {
-        link.classList.add('active');
+      if (bookBtn) {
+        bookBtn.classList.add('show'); // ✅ This is the right way
       }
-    });
-  });
-
-
-
-
-  // Swap typing line after first animation
-  setTimeout(() => {
-    const fullLine = document.getElementById("full-line");
-    if (fullLine) fullLine.style.display = "none";
-    document.getElementById("loop-line").classList.remove("hidden");
+    }, 1000);
   }, 4000);
+});
+// Active nav bar
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll('.nav-link');
+  const currentPath = window.location.pathname;
 
-  // Hamburger menu toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.querySelector('.nav-links');
+  links.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    }
+  });
+});
 
+// Swap typing line after preloader
+setTimeout(() => {
+  const fullLine = document.getElementById("full-line");
+  const loopLine = document.getElementById("loop-line");
+
+  if (fullLine) fullLine.style.display = "none";
+  if (loopLine) loopLine.classList.remove("hidden");
+}, 4000);
+
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('show');
   });
+}
 
-  // Fade in service boxes when they scroll into view
-  const serviceBoxes = document.querySelectorAll('.service-box');
+// Fade in service boxes
+const serviceBoxes = document.querySelectorAll('.service-box');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
+const serviceObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      serviceObserver.unobserve(entry.target);
+    }
   });
+}, {
+  threshold: 0.1
+});
 
-  serviceBoxes.forEach(box => {
-    observer.observe(box);
-  });
+serviceBoxes.forEach(box => {
+  serviceObserver.observe(box);
+});
 
-// Show testimonial cards when they scroll into view
+// Fade in testimonial cards
 const testimonialCards = document.querySelectorAll('.testimonial-card');
 
 const testimonialObserver = new IntersectionObserver((entries) => {
@@ -94,27 +94,16 @@ testimonialCards.forEach(card => {
   testimonialObserver.observe(card);
 });
 
-// disappear the book a meeting button at the button
-
-  const floatingBtn = document.querySelector('.floating-book-btn');
-  const footerTrigger = document.getElementById('footer-trigger');
-
-  if (floatingBtn && footerTrigger) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        floatingBtn.style.display = entry.isIntersecting ? 'none' : 'flex';
-      });
-    });
-
-    observer.observe(footerTrigger);
-  }
+// Hide floating button near footer
+const floatingBtn = document.querySelector('.floating-book-btn');
+const footerTrigger = document.getElementById('footer-trigger');
 
 if (floatingBtn && footerTrigger) {
-  const observer = new IntersectionObserver((entries) => {
+  const footerObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      floatingBtn.classList.toggle('hidden', entry.isIntersecting);
+      floatingBtn.style.display = entry.isIntersecting ? 'none' : 'flex';
     });
   });
 
-  observer.observe(footerTrigger);
+  footerObserver.observe(footerTrigger);
 }
