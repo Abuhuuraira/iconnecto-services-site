@@ -1,36 +1,32 @@
-// Swap typing line after first animation
+document.addEventListener('DOMContentLoaded', () => {
+  // Swap typing line after first animation
   setTimeout(() => {
     const fullLine = document.getElementById("full-line");
+    const loopLine = document.getElementById("loop-line");
     if (fullLine) fullLine.style.display = "none";
-    document.getElementById("loop-line").classList.remove("hidden");
+    if (loopLine) loopLine.classList.remove("hidden");
   }, 4000);
 
   // Hamburger menu toggle
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('.nav-links');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-// active nav bar //
-
-   document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll('.nav-link');
-    const currentPath = window.location.pathname;
-
-    links.forEach(link => {
-      const linkPath = link.getAttribute('href');
-
-      // Match full path (like /pages/home.html)
-      if (linkPath === currentPath) {
-        link.classList.add('active');
-      }
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
     });
+  }
+
+  // Active nav bar
+  const links = document.querySelectorAll('.nav-link');
+  const currentPath = window.location.pathname;
+  links.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    }
   });
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
+  // Animate counters when in view
   const counters = document.querySelectorAll('.counter');
 
   const animateCounter = (counter) => {
@@ -52,27 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
     update();
   };
 
-  const observer = new IntersectionObserver((entries, observer) => {
+  const counterObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const counter = entry.target;
-        animateCounter(counter);
-        observer.unobserve(counter); // Only animate once
+        animateCounter(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.5 // Trigger when 50% of element is visible
+    threshold: 0.5
   });
 
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-});
+  counters.forEach(counter => counterObserver.observe(counter));
 
-
-  
-
-  // ✅ Show testimonial cards when they scroll into view (defined once)
+  // Show testimonial cards when in view
   const testimonialCards = document.querySelectorAll('.testimonial-card');
   const testimonialObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -85,32 +74,20 @@ document.addEventListener('DOMContentLoaded', () => {
     threshold: 0.2
   });
 
-  testimonialCards.forEach(card => {
-    testimonialObserver.observe(card);
-  });
+  testimonialCards.forEach(card => testimonialObserver.observe(card));
 
-  
-// disappear the book a meeting button at the button
-
+  // Hide floating button near footer
   const floatingBtn = document.querySelector('.floating-book-btn');
   const footerTrigger = document.getElementById('footer-trigger');
 
   if (floatingBtn && footerTrigger) {
-    const observer = new IntersectionObserver((entries) => {
+    const footerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        floatingBtn.style.display = entry.isIntersecting ? 'none' : 'flex';
+        const isVisible = entry.isIntersecting;
+        floatingBtn.style.display = isVisible ? 'none' : 'flex';
+        floatingBtn.classList.toggle('hidden', isVisible);
       });
     });
-
-    observer.observe(footerTrigger);
+    footerObserver.observe(footerTrigger);
   }
-
-if (floatingBtn && footerTrigger) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      floatingBtn.classList.toggle('hidden', entry.isIntersecting);
-    });
-  });
-
-  observer.observe(footerTrigger);
-}
+});

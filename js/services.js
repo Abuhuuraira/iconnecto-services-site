@@ -1,140 +1,34 @@
-// active nav bar //
-
-   document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll('.nav-link');
-    const currentPath = window.location.pathname;
-
-    links.forEach(link => {
-      const linkPath = link.getAttribute('href');
-
-      // Match full path (like /pages/home.html)
-      if (linkPath === currentPath) {
-        link.classList.add('active');
-      }
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  // ===== Active Nav Bar =====
+  const links = document.querySelectorAll('.nav-link');
+  const currentPath = window.location.pathname;
+  links.forEach(link => {
+    const linkPath = link.getAttribute('href');
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    }
   });
 
-
-
-
-
-
-
-// Swap typing line after first animation
+  // ===== Typing Line Animation Swap =====
   setTimeout(() => {
     const fullLine = document.getElementById("full-line");
+    const loopLine = document.getElementById("loop-line");
     if (fullLine) fullLine.style.display = "none";
-    document.getElementById("loop-line").classList.remove("hidden");
+    if (loopLine) loopLine.classList.remove("hidden");
   }, 4000);
 
-  // Hamburger menu toggle
+  // ===== Hamburger Menu Toggle =====
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('.nav-links');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-
-// active nav bar //
-
-   document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll('.nav-link');
-    const currentPath = window.location.pathname;
-
-    links.forEach(link => {
-      const linkPath = link.getAttribute('href');
-
-      // Match full path (like /pages/home.html)
-      if (linkPath === currentPath) {
-        link.classList.add('active');
-      }
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
     });
-  });
-
-
-
- const track = document.getElementById("carouselTrack");
-const container = document.getElementById("carouselContainer");
-const leftArrow = document.getElementById("leftArrow");
-const rightArrow = document.getElementById("rightArrow");
-
-let scrollSpeed = 1.5;
-let isDragging = false;
-let isPaused = false;
-let startX, scrollLeft;
-
-// Clone carousel items for seamless infinite scroll
-function cloneCarouselItems() {
-  const cards = Array.from(track.children);
-  cards.forEach(card => {
-    track.appendChild(card.cloneNode(true));
-  });
-}
-
-cloneCarouselItems();
-
-// Auto-scroll
-function autoScroll() {
-  if (!isPaused && !isDragging) {
-    track.scrollLeft += scrollSpeed;
-    if (track.scrollLeft >= track.scrollWidth / 2) {
-      track.scrollLeft = 0;
-    }
   }
-  requestAnimationFrame(autoScroll);
-}
 
-requestAnimationFrame(autoScroll);
-
-// Hover Pause
-container.addEventListener("mouseenter", () => isPaused = true);
-container.addEventListener("mouseleave", () => isPaused = false);
-
-// Dragging
-track.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  startX = e.pageX - track.offsetLeft;
-  scrollLeft = track.scrollLeft;
-  track.style.cursor = "grabbing";
-});
-document.addEventListener("mouseup", () => {
-  isDragging = false;
-  track.style.cursor = "grab";
-});
-track.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const x = e.pageX - track.offsetLeft;
-  const walk = (x - startX) * 2;
-  track.scrollLeft = scrollLeft - walk;
-});
-
-// Touch
-track.addEventListener("touchstart", (e) => {
-  isDragging = true;
-  startX = e.touches[0].pageX - track.offsetLeft;
-  scrollLeft = track.scrollLeft;
-});
-track.addEventListener("touchmove", (e) => {
-  if (!isDragging) return;
-  const x = e.touches[0].pageX - track.offsetLeft;
-  const walk = (x - startX) * 2;
-  track.scrollLeft = scrollLeft - walk;
-}, { passive: true });
-
-track.addEventListener("touchend", () => {
-  isDragging = false;
-});
-
-
-
-
-// counter start
-
-document.addEventListener('DOMContentLoaded', () => {
+  // ===== Counter Animation on Scroll =====
   const counters = document.querySelectorAll('.counter');
-  const speed = 100; // Lower = faster
-
+  const speed = 100;
   const animate = (counter) => {
     const target = +counter.getAttribute('data-target');
     const count = +counter.innerText;
@@ -147,46 +41,98 @@ document.addEventListener('DOMContentLoaded', () => {
       counter.innerText = target.toLocaleString();
     }
   };
-
-  const observer = new IntersectionObserver((entries, observer) => {
+  const counterObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        animate(entry.target); // Start counter animation
-        observer.unobserve(entry.target); // Run once
+        animate(entry.target);
+        observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.5 // When 50% visible
-  });
+  }, { threshold: 0.5 });
 
   counters.forEach(counter => {
-    observer.observe(counter);
+    counterObserver.observe(counter);
   });
-});
 
-
-// disappear the book a meeting button at the button
-
+  // ===== Hide Book Meeting Button near Footer =====
   const floatingBtn = document.querySelector('.floating-book-btn');
   const footerTrigger = document.getElementById('footer-trigger');
-
   if (floatingBtn && footerTrigger) {
-    const observer = new IntersectionObserver((entries) => {
+    const footerObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        floatingBtn.style.display = entry.isIntersecting ? 'none' : 'flex';
+        floatingBtn.classList.toggle('hidden', entry.isIntersecting);
       });
     });
-
-    observer.observe(footerTrigger);
+    footerObserver.observe(footerTrigger);
   }
+});
 
-if (floatingBtn && footerTrigger) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      floatingBtn.classList.toggle('hidden', entry.isIntersecting);
-    });
+// ===== Infinite Carousel =====
+const track = document.getElementById("carouselTrack");
+const container = document.getElementById("carouselContainer");
+
+let scrollSpeed = 1.5;
+let isDragging = false;
+let isPaused = false;
+let startX, scrollLeft;
+
+function cloneCarouselItems() {
+  const cards = Array.from(track.children);
+  cards.forEach(card => {
+    track.appendChild(card.cloneNode(true));
   });
-
-  observer.observe(footerTrigger);
 }
 
+if (track && container) {
+  cloneCarouselItems();
+
+  // Auto-scroll
+  function autoScroll() {
+    if (!isPaused && !isDragging) {
+      track.scrollLeft += scrollSpeed;
+      if (track.scrollLeft >= track.scrollWidth / 2) {
+        track.scrollLeft = 0;
+      }
+    }
+    requestAnimationFrame(autoScroll);
+  }
+  requestAnimationFrame(autoScroll);
+
+  // Pause on hover
+  container.addEventListener("mouseenter", () => isPaused = true);
+  container.addEventListener("mouseleave", () => isPaused = false);
+
+  // Drag scroll (Desktop)
+  track.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    track.style.cursor = "grabbing";
+  });
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    track.style.cursor = "grab";
+  });
+  track.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 2;
+    track.scrollLeft = scrollLeft - walk;
+  });
+
+  // Drag scroll (Mobile)
+  track.addEventListener("touchstart", (e) => {
+    isDragging = true;
+    startX = e.touches[0].pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+  track.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const x = e.touches[0].pageX - track.offsetLeft;
+    const walk = (x - startX) * 2;
+    track.scrollLeft = scrollLeft - walk;
+  }, { passive: true });
+  track.addEventListener("touchend", () => {
+    isDragging = false;
+  });
+}
