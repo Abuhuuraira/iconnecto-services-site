@@ -1,37 +1,3 @@
-// Preloader
-window.addEventListener('load', function () {
-  const preloader = document.getElementById('preloader');
-  const mainContent = document.getElementById('main-content');
-  const bookBtn = document.querySelector('.floating-book-btn');
-  const typingText = document.querySelector('.preloader-text');
-
-  setTimeout(() => {
-    if (typingText) {
-      typingText.textContent = 'iConnecto';
-      typingText.style.opacity = '1';
-      typingText.style.animation = 'typing 2s steps(9, end) forwards';
-    }
-  }, 1500);
-
-  setTimeout(() => {
-    if (mainContent) {
-      mainContent.style.display = 'block';
-      mainContent.classList.add('fade-in');
-    }
-
-    if (preloader) {
-      preloader.classList.add('slide-up');
-
-      setTimeout(() => {
-        preloader.style.display = 'none';
-
-        if (bookBtn) {
-          bookBtn.classList.add('show'); // ✅ This is the right way
-        }
-      }, 1000);
-    }
-  }, 4000);
-});
 
 // Active nav bar
 document.addEventListener("DOMContentLoaded", function () {
