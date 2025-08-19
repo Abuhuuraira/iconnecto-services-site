@@ -61,11 +61,82 @@
       <h1>We<br><span>reimagine</span><br>tomorrow</h1>
       
 
-      <!-- Loop line after first -->
-      <p id="loop-line" class="hidden">
-        <span class="static-text">Strategic </span>
-        <span class="type-loop">Web Solutions Designed To Elevate Your Brand</span>
-      </p>
+  <!-- First line -->
+<p id="full-line"></p>
+
+<!-- Looping line -->
+<p id="loop-line" class="hidden">
+  <span id="loop-text"></span>
+</p>
+
+<script>
+/* --- First line text --- */
+const firstText = "Welcome to iConnecto";
+const fullLine = document.getElementById("full-line");
+const loopLine = document.getElementById("loop-line");
+const loopText = document.getElementById("loop-text");
+
+/* --- Looping text --- */
+const loopString = "Driven to Deliver, Connected to You";
+let index = 0;
+let isDeleting = false;
+
+/* Typewriter for first line */
+function typeFirstLine(i = 0) {
+  if (i < firstText.length) {
+    fullLine.textContent += firstText.charAt(i);
+    setTimeout(() => typeFirstLine(i + 1), 100);
+  } else {
+    setTimeout(() => {
+      fullLine.style.display = "none";
+      loopLine.classList.remove("hidden");
+      typeLoop(); // start looping text
+    }, 1000);
+  }
+}
+
+/* Looping typewriter */
+function typeLoop() {
+  if (!isDeleting) {
+    // typing forward
+    loopText.textContent = loopString.substring(0, index + 1);
+    index++;
+    if (index === loopString.length) {
+      isDeleting = true;
+      setTimeout(typeLoop, 1500); // pause before deleting
+      return;
+    }
+  } else {
+    // deleting backward
+    loopText.textContent = loopString.substring(0, index - 1);
+    index--;
+    if (index === 0) {
+      isDeleting = false;
+    }
+  }
+  setTimeout(typeLoop, isDeleting ? 50 : 100);
+}
+
+/* Start typing */
+typeFirstLine();
+</script>
+
+<style>
+.hidden {
+  display: none;
+}
+#loop-text {
+  border-right: 2px solid #000;
+  padding-right: 2px;
+  animation: blink 0.7s infinite;
+}
+@keyframes blink {
+  0% { border-color: transparent; }
+  50% { border-color: black; }
+  100% { border-color: transparent; }
+}
+</style>
+
 
       <a href="#" class="cta-button fade-in delay-5">GET IN TOUCH</a>
     </div>

@@ -13,13 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Swap typing line after preloader
-setTimeout(() => {
-  const fullLine = document.getElementById("full-line");
-  const loopLine = document.getElementById("loop-line");
 
-  if (fullLine) fullLine.style.display = "none";
-  if (loopLine) loopLine.classList.remove("hidden");
-}, 4000);
 
 // Hamburger menu toggle
 document.addEventListener("DOMContentLoaded", function () {
