@@ -18,7 +18,7 @@
 
 
   <header class="navbar">
-     <a href="/index.html" class="logo-link">
+     <a href="index.html" class="logo-link">
   <div class="logo">
     <img src="/images/iconnecto_logo.jpg" alt="iConnecto Logo" class="logo-img" />
     <div class="logo-text-block">
@@ -267,13 +267,67 @@
   </footer>
   <!-- Footer End -->
 </section>
-<a href="/pages/book.html" class="floating-book-btn" title="Book a Meeting" target="_blank">
+<!-- Modal -->
+<style>
+/* Modal overlay */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* dark background */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* Modal content */
+.modal iframe {
+  width: 90%;
+  max-width: 800px;
+  height: 80%;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+</style>
+
+<!-- Button -->
+<button class="floating-book-btn" onclick="openModal()">
   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M8 7V3M16 7V3M4 11h16M5 20h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z"/>
   </svg>
   Book a Meeting
-</a>
+</button>
+
+<!-- Modal -->
+<div id="calendarModal" class="modal">
+  <div class="close-btn" onclick="closeModal()">✖</div>
+  <iframe src="https://calendly.com/sibghat-iconnecto"></iframe>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("calendarModal").style.display = "flex";
+}
+function closeModal() {
+  document.getElementById("calendarModal").style.display = "none";
+}
+</script>
 
 
 </div> <!-- END #main-content -->
