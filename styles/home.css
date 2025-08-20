@@ -472,6 +472,9 @@ body, html {
     display: flex;
   }
 }
+.services-section {
+  background-color: solid black;
+}
 
 .services-heading {
   text-align: center;
