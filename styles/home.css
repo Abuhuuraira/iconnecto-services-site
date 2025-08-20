@@ -473,215 +473,78 @@ body, html {
   }
 }
 
-.services {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
- 
-  background-color: #f8f9fc;
-  flex-wrap: wrap;
-   margin-top: 30px; /* <-- Add space above */
+.services-heading {
+  text-align: center;
+  font-size: 2.5rem;       /* Bigger text */
+  font-weight: 700;        /* Bold */
+  margin: 50px 0 30px;     /* Space above and below */
+  color: #111827;          /* Dark shade (you can change) */
+  position: relative;      /* For underline effect */
 }
 
-.services-left {
-  flex: 1;
-  min-width: 280px;
-  padding-left: 30px;
+.services-heading::after {
+  content: "";
+  display: block;
+  width: 80px;             /* Line width */
+  height: 4px;             /* Line thickness */
+  background: #4f46e5;     /* Accent color */
+  margin: 10px auto 0;     /* Center underline */
+  border-radius: 2px;
 }
 
-.services-left h2,
-.services-left h3 {
-  font-size: clamp(28px, 6vw, 48px);
-  font-weight: 700;
-  margin-bottom: 20px;
-}
 
-.services-left h2 span,
-.services-left h3 span {
-  color: purple;
-}
-
-.get-in-touch-link {
-  display: inline-block;
-  margin-top: 20px;
-  color: black;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.3s ease;
-}
-
-.get-in-touch-link:hover {
-  color:purple;
-  text-decoration: underline;
-}
-
-.services-right {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+.services-container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;   /* full viewport width */
 }
 
 .service-box {
-  background-color: white;
-  padding: 30px;
-  border-left: 3px solid #ff5722;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: 0.3s ease;
+  height: 100vh;
+  width: 100vw;   /* fill screen horizontally */
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0;
+}
+
+
+.service-box.active {
   opacity: 0;
-  transform: translateY(30px);
+  transform: scale(1);
+  z-index: 1;
 }
-
-/* Visible class when in view */
-.service-box.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+.service-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
 }
-
-
-
-
-.service-box h4 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: purple;
+.service-box h4, .service-box p, .service-box a {
+  position: relative;
+  z-index: 2;
 }
-
-.service-box p {
-  font-size: 14px;
-  color: #333;
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
-
+.service-box h4 { font-size: 2.5rem; margin-bottom: 20px; text-shadow: var(--text-shadow); }
+.service-box p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; line-height: 1.6; text-shadow: 1px 1px 6px rgba(0,0,0,0.6); }
 .service-box a {
-  color: black;
-  font-weight: bold;
-  font-size: 14px;
+  padding: 12px 24px;
+  background: var(--primary);
+  color: #fff;
   text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
 }
+.service-box a:hover { background: var(--primary-hover); }
 
-.service-box a:hover {
-  text-decoration: underline;
-  color: purple;
-}
 
-/* Responsive */
-@media (max-width: 768px) {
-  .services {
-    flex-direction: column;
-    gap: 40px;
-    padding: 60px 0;
-  }
-
-  .services-left,
-  .services-right {
-    flex: unset;
-  }
-}
-
-/* Service responsive */
-
-/* Tablet Devices */
-@media (max-width: 1024px) {
-  .services {
-    flex-direction: column;
-    padding: 50px 0;
-    gap: 50px;
-  }
-
-  .services-left,
-  .services-right {
-    width: 100%;
-  }
-
-  .services-left {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .services-left h2,
-  .services-left h3 {
-    font-size: clamp(26px, 5vw, 36px);
-  }
-
-  .services-right {
-    align-items: center;
-  }
-
-  .service-box {
-    width: 100%;
-    max-width: 600px;
-  }
-}
-
-/* Mobile Devices */
-@media (max-width: 768px) {
-  .services {
-    padding: 40px 0;
-    gap: 40px;
-  }
-
-  .services-left {
-    text-align: center;
-  }
-
-  .services-left h2,
-  .services-left h3 {
-    font-size: clamp(22px, 6vw, 32px);
-  }
-
-  .get-in-touch-link {
-    font-size: 15px;
-  }
-
-  .services-right {
-    align-items: center;
-    gap: 30px;
-  }
-
-  .service-box {
-    padding: 25px;
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .service-box h4 {
-    font-size: 18px;
-  }
-
-  .service-box p,
-  .service-box a {
-    font-size: 13px;
-  }
-}
-
-/* Extra Small Devices */
-@media (max-width: 480px) {
-  .services {
-    padding: 30px 0;
-  }
-
-  .service-box {
-    padding: 20px;
-  }
-
-  .service-box h4 {
-    font-size: 16px;
-  }
-
-  .service-box p,
-  .service-box a {
-    font-size: 12px;
-  }
-
-  .get-in-touch-link {
-    font-size: 14px;
-  }
-}
 
 
 

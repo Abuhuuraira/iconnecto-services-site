@@ -27,23 +27,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Fade in service boxes
-document.addEventListener("DOMContentLoaded", function () {
-  const serviceBoxes = document.querySelectorAll('.service-box');
+// Activate service on scroll
+const serviceBoxes = document.querySelectorAll('.service-box');
 
-  const serviceObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        serviceObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY + window.innerHeight/2;
   serviceBoxes.forEach(box => {
-    serviceObserver.observe(box);
+    if(box.offsetTop < scrollPos) box.classList.add('active');
+    else box.classList.remove('active');
   });
 });
 
