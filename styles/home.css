@@ -526,7 +526,7 @@ body, html {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.3);
 }
 .service-box h4, .service-box p, .service-box a {
   position: relative;
@@ -562,7 +562,7 @@ body, html {
 
   color: white;
   text-align: center;
-    margin-top: 40px; /* <-- Add space above */
+    
 }
 
 .why-title {
