@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <sitemap>
+    <loc>https://iconnecto.net/sitemap_pages.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://iconnecto.net/sitemap_services.xml</loc>
+  </sitemap>
+
+  <sitemap>
+    <loc>https://iconnecto.net/sitemap_blogs.xml</loc>
+  </sitemap>
+
+</sitemapindex>
