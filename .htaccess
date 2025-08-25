@@ -8,3 +8,15 @@ RewriteRule ^(.*)$ $1.html [L]
 # Optional: redirect old .html URLs to extensionless
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ %1 [R=301,L]
+
+
+# Redirect .html URLs to clean version
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+RewriteEngine On
+
+# Redirect requests without /pages/ to the correct file inside /pages/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)$ pages/$1.html [L]
