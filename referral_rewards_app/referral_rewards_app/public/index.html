@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Referral & Rewards | iConnecto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%235b21b6'/><text x='50' y='60' font-size='50' text-anchor='middle' fill='white'>i</text></svg>">
+  <meta name="description" content="Earn rewards by referring friends to iConnecto. Share your unique link, track points, and redeem perks.">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">
+      <span class="logo">i</span>
+      <span class="brand-name">iConnecto</span>
+    </div>
+    <a class="btn ghost" href="#how">How it works</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Earn Rewards by Sharing <span class="grad">iConnecto</span> 🎉</h1>
+      <p>Invite friends with your unique link. Each successful signup gives you <b>100 points</b>. Redeem <b>500 points</b> for perks.</p>
+      <div class="cta-row">
+        <input id="usernameInput" class="input" placeholder="Enter your username" />
+        <button id="startBtn" class="btn primary">Get My Referral Link</button>
+      </div>
+      <p id="welcomeNote" class="muted"></p>
+    </div>
+  </header>
+
+  <main>
+    <section id="how" class="card steps">
+      <h2>How it works</h2>
+      <div class="grid-3">
+        <div class="step">
+          <div class="step-icon">🔗</div>
+          <h3>Share</h3>
+          <p>Copy your unique link and share on WhatsApp, Instagram, or email.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🧑‍🤝‍🧑</div>
+          <h3>Join</h3>
+          <p>Your friend signs up using your link. No friction, no hassle.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🏆</div>
+          <h3>Earn</h3>
+          <p>You instantly get 100 points for each successful referral.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card refbox">
+      <h2>Your referral link</h2>
+      <div class="ref-row">
+        <input id="refLink" class="input mono" readonly value=""/>
+        <button id="copyBtn" class="btn">Copy</button>
+        <button id="shareBtn" class="btn ghost">Share</button>
+      </div>
+      <p class="muted">Tip: Your link includes your referral code automatically.</p>
+    </section>
+
+    <section class="card rewards">
+      <div class="rewards-head">
+        <h2>Your rewards</h2>
+        <button id="redeemBtn" class="btn ghost">Redeem 500</button>
+      </div>
+      <p id="pointsText"><b>0</b> points</p>
+      <div class="progress">
+        <div id="progressInner" class="progress-inner" style="width:0%"></div>
+      </div>
+      <p id="progressNote" class="muted">Collect 500 points to unlock your next reward.</p>
+    </section>
+
+    <section class="card join-ref" id="joinRefSection" hidden>
+      <h2>Joining via referral</h2>
+      <p id="joinRefText" class="muted"></p>
+      <div class="cta-row">
+        <input id="newUserInput" class="input" placeholder="Choose a username to sign up"/>
+        <button id="completeSignupBtn" class="btn primary">Complete Sign Up</button>
+      </div>
+      <p class="muted small">This demo simulates signup. Plug in your real auth later.</p>
+    </section>
+
+    <section class="card leaderboard">
+      <h2>Top referrers</h2>
+      <ol id="lbList" class="lb-list"></ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 iConnecto. Built with ❤️ — Purple • White • Black.</p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

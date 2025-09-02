@@ -73,3 +73,36 @@ document.addEventListener("DOMContentLoaded", function () {
     footerObserver.observe(footerTrigger);
   }
 });
+
+// Mobile Services Dropdown Toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownLink = dropdown ? dropdown.querySelector("a") : null;
+  const dropdownMenu = dropdown ? dropdown.querySelector(".dropdown-menu") : null;
+  const navLinks = document.querySelector(".nav-links");
+
+  if (dropdown && dropdownLink && dropdownMenu) {
+    dropdownLink.addEventListener("click", (e) => {
+      // Only run this on mobile
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+
+        // Toggle dropdown menu
+        dropdownMenu.classList.toggle("show");
+        dropdown.classList.toggle("open");
+      }
+    });
+  }
+
+  // ✅ Close nav when user clicks a normal nav link (mobile only)
+  const navItems = document.querySelectorAll(".nav-links a:not(.dropdown > a)");
+
+  navItems.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768 && navLinks.classList.contains("show")) {
+        navLinks.classList.remove("show");
+      }
+    });
+  });
+});
+

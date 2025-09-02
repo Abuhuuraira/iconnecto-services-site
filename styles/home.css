@@ -1,3 +1,5 @@
+
+
 /* Reset */
 * {
   margin: 0;
@@ -199,6 +201,85 @@ body, html {
     flex-direction: row;
     align-items: center;
     gap: 10px;
+  }
+}
+
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Services link with arrow */
+.dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  
+}
+
+/* Dropdown menu (hidden initially) */
+.dropdown-menu {
+  display: none; /* 👈 hide the menu by default */
+  position: absolute;
+  top: 100%; /* directly below Services */
+  left: 0;
+  min-width: 220px;
+  background: #000;
+  border-radius: 6px;
+  padding: 8px 0;
+  z-index: 999;
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: none;       /* links take full width */
+  padding: 3px 10px;   /* spacing between items */
+  color: white;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.dropdown-menu li a:hover {
+  background: #222;
+  color: purple;
+  
+}
+
+/* Show dropdown ONLY on hover */
+.dropdown:hover .dropdown-menu li a {
+  display: block;
+ 
+}
+
+/* Arrow styling */
+.dropdown i {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  /* Hide dropdown initially */
+  .dropdown-menu {
+    display:none;
+    flex-direction: column;
+    background: #000;
+    border-radius: 6px;
+    padding: 8px 0;
+  }
+
+  /* Show when active */
+  .dropdown-menu.show {
+    display: flex;
+  }
+
+  /* Rotate arrow when open */
+  .dropdown.open > a i {
+    transform: rotate(180deg);
+    transition: transform 0.3s;
   }
 }
 
@@ -1203,3 +1284,220 @@ footer {
   pointer-events: none;
 }
 
+/* ==========================
+   Hire a Virtual Assistant
+   ========================== */
+.hire-va {
+  padding: 100px 20px;
+  background: #fff;
+}
+
+.hire-va .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hire-va .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hire-va .image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.hire-va .image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.hire-va .text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.hire-va .text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.hire-va .btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 34px;
+  background: linear-gradient(135deg, #6c63ff, #8e44ad);
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.3);
+  transition: all 0.3s ease;
+}
+.hire-va .btn:hover {
+  background: linear-gradient(135deg, #8e44ad, #6c63ff);
+  box-shadow: 0 8px 24px rgba(142, 68, 173, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hire-va .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  .hire-va .image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .hire-va .text h2 {
+    font-size: 2rem;
+  }
+  .hire-va .text p {
+    font-size: 1rem;
+  }
+  .hire-va .btn {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+}
+
+
+/* How We Work Section */
+.how-we-work {
+  padding: 80px 20px;
+  background: #f9f9fb;
+}
+
+.how-we-work .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.how-we-work .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.work-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.work-text .intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.step {
+  margin-bottom: 20px;
+  padding-left: 15px;
+  border-left: 4px solid #007bff;
+}
+
+.step h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+.step p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  margin-top: 25px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+/* Image */
+.work-image img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.work-image img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .how-we-work .grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .step {
+    border-left: none;
+    border-top: 3px solid #007bff;
+    padding-left: 0;
+    padding-top: 10px;
+  }
+}
+
+
+
+/* === FAQs (scoped) === */
+.faq-section{
+  --fq-bg:#0b0b0f; --fq-card:#12121a; --fq-border:#24243a; --fq-accent:#9C4DF4;
+  background: linear-gradient(180deg,#0b0b0f, #0d0d14);
+  color:#fff; padding: 80px 24px;
+}
+.faq-wrap{ max-width: 900px; margin: 0 auto; }
+.faq-head{ text-align:center; margin-bottom: 26px; }
+.faq-pill{
+  display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  background:#171725; color:#b5b9d3; padding:8px 12px; border-radius:999px; border:1px solid #24243a;
+}
+.faq-head h2{ font-size: clamp(28px, 4vw, 42px); font-weight:800; margin-top:10px; }
+.faq-head h2 span{ color: var(--fq-accent); }
+.faq-head p{ color:#cfd2e0; margin-top:8px; }
+
+.faq-list{ display:grid; gap:12px; margin-top: 10px; }
+.faq-item{
+  background: linear-gradient(180deg,#151522, #10101a);
+  border:1px solid var(--fq-border); border-radius:14px; overflow:hidden;
+}
+.faq-q{
+  width:100%; text-align:left; background:transparent; border:0; color:#fff;
+  padding:18px 18px; font-size:16px; font-weight:600; display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer;
+}
+.faq-q i{ transition: transform .25s ease; }
+.faq-item.open .faq-q i{ transform: rotate(180deg); }
+
+.faq-a{
+  display:grid; grid-template-rows: 0fr; transition: grid-template-rows .28s ease;
+}
+.faq-a > p{
+  overflow:hidden; margin:0; padding:0 18px 0; color:#cfd2e0; line-height:1.65; font-size:14px;
+}
+.faq-item.open .faq-a{ grid-template-rows: 1fr; }
+.faq-item.open .faq-a > p{ padding: 0 18px 16px; }
+
+.faq-item:hover{ border-color:#3b2d70; box-shadow: 0 12px 30px rgba(156,77,244,.14); }
