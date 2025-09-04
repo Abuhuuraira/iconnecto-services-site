@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- 🔹 Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Entry Services — iConnecto</title>
+  <meta name="description" content="Professional data entry services: accurate, fast, and reliable solutions for businesses. Outsource your data entry to iConnecto." />
+  
+  <link rel="stylesheet" href="../styles/global.css"> <!-- ✅ reuse same CSS -->
+  <style>
+  :root {
+    --bg:#0b0b0d;
+    --panel:#0f1720;
+    --muted:#9aa3b2;
+    --accent:#a855f7;
+    --card:#0f1724;
+    --glass: rgba(255,255,255,0.03);
+    --radius:20px;
+    --maxw:1200px;
+    --gap:20px;
+    --fw-medium:600;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:linear-gradient(180deg, var(--bg) 0%, #071018 100%);
+    color:#e6eef6;
+    line-height:1.45;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+  /* ✅ Navbar */
+  .navbar{position:sticky;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10;color:#fff;background:#000}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo-img{height:50px;width:auto;object-fit:contain}
+  .logo-text-block{display:flex;flex-direction:column;line-height:1.1}
+  .logo-text{font-size:20px;font-weight:bold;text-transform:uppercase;color:#fff}
+  .logo-tagline{font-size:12px;font-weight:300;color:#ccc}
+  .logo-link{text-decoration:none;color:inherit;display:flex;align-items:center}
+  .nav-links ul{list-style:none;display:flex;flex-wrap:wrap;gap:20px;font-size:14px;margin:0;padding:0}
+  .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color .3s}
+  .nav-links a:hover{color:purple}
+  .hamburger{display:none}
+
+  /* ✅ Dropdown */
+  .dropdown{position:relative;}
+  .dropdown > a{display:flex;align-items:center;gap:4px;}
+  .dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:220px;background:#000;
+    border-radius:6px;padding:8px 0;z-index:999;}
+  .dropdown-menu li{list-style:none;}
+  .dropdown-menu li a{display:none;padding:6px 14px;color:white;font-size:14px;}
+  .dropdown-menu li a:hover{background:#222;color:var(--accent);}
+  .dropdown:hover .dropdown-menu li a{display:block;}
+  .dropdown i{font-size:.75rem;}
+  @media (max-width:768px){
+    .hamburger{display:block;position:absolute;right:20px;top:25px;z-index:20;}
+    .nav-links{display:none;flex-direction:column;background:rgba(0,0,0,.95);
+      position:absolute;top:100%;left:0;width:100%;padding:20px;}
+    .nav-links ul{flex-direction:column;gap:12px;}
+    .nav-links.show{display:flex;}
+    .dropdown-menu{display:none;flex-direction:column;}
+    .dropdown-menu.show{display:flex;}
+  }
+
+  /* ✅ Hero (no image) */
+  .hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 16px;
+    gap:20px;
+  }
+  .h-title{
+    font-size:clamp(28px,4.5vw,44px);
+    font-weight:700;
+    letter-spacing:-.02em;
+    background:linear-gradient(90deg,#a855f7,#6366f1,#9333ea);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-size:200% auto;
+    animation:gradient-move 4s linear infinite;
+    margin:0;
+  }
+  @keyframes gradient-move{0%{background-position:0% center;}100%{background-position:200% center;}}
+  .h-sub{color:var(--muted);max-width:720px;margin:0 auto;}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;
+    font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.03);}
+  .primary{background:linear-gradient(90deg,var(--accent),#7c6df7);color:white;}
+  .secondary{border:1px solid rgba(255,255,255,.06);color:var(--muted);}
+
+  /* ✅ Sections */
+  section{padding:56px 0;border-top:1px solid rgba(255,255,255,.02);}
+  .section-head{text-align:center;max-width:900px;margin:0 auto;}
+  .section-title{font-size:34px;font-weight:700;margin:0 0 12px;}
+  .section-sub{color:var(--muted);margin-top:10px;font-size:18px;max-width:800px;margin:auto;}
+
+  /* ✅ Cards */
+  .grid-3{display:grid;gap:18px;margin-top:22px;}
+  .service-card{background:var(--card);border-radius:18px;padding:18px;border:1px solid rgba(255,255,255,.03);transition:.3s;}
+  .service-card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--accent);box-shadow:0 0 20px rgba(168,85,247,.4);}
+  .service-card .title{font-size:16px;font-weight:700;}
+  .service-card p{color:var(--muted);margin-top:8px;}
+  .learn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--accent);font-weight:600;}
+
+  @media (max-width:768px){
+  .dropdown-menu{position:static!important;display:block;height:0;overflow:hidden;
+    background:#111;border-radius:6px;margin:0;padding:0;transition:height .3s ease}
+  .dropdown-menu li{list-style:none}
+  .dropdown-menu li a{display:block;padding:10px 16px;color:#fff}
+  .dropdown.open .dropdown-menu{height:auto}
+}
+
+
+  /* ✅ Footer */
+  footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
+  </style>
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<header class="navbar">
+  <a href="../index.html" class="logo-link">
+    <div class="logo">
+      <img src="/images/ChatGPT Image Aug 20, 2025, 03_59_59 PM.png" alt="iConnecto Logo" class="logo-img" />
+      <div class="logo-text-block">
+        <div class="logo-text">iconnecto</div>
+        <div class="logo-tagline">Driven to Deliver, Connected to You</div>
+      </div>
+    </div>
+  </a>
+  <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+
+  <nav class="nav-links">
+    <ul>
+      <li class="dropdown">
+        <a href="#">Services <i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="/ser.html">Web Development</a></li>
+          <li><a href="/shopy.html">Shopify Store Management</a></li>
+          <li><a href="/data-entry.html">Data Entry</a></li>
+          <li><a href="/graphic-design.html">Graphic Design</a></li>
+        </ul>
+      </li>
+      <li><a href="../pages/blogs.html" class="nav-link">Blogs</a></li>
+      <li><a href="/referral_rewards_app/referral_rewards_app/public/reward.html" class="nav-link">Reward</a></li>
+      <li><a href="about-us.html" class="nav-link">About Us</a></li>
+      <li><a href="contact-us.html" class="nav-link">Contact Us</a></li>
+      <li>
+        <a href="https://wa.me/923484243795" target="_blank" class="nav-link">
+          <i class="fab fa-whatsapp"></i> +92 348 4243795
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- ✅ HERO (no image) -->
+  <header class="hero">
+    <h1 class="h-title">Data Entry Services That Save Time</h1>
+    <p class="h-sub">
+      Get accurate, reliable, and fast data entry solutions tailored for businesses of all sizes. Focus on growing your business while we handle the details.
+    </p>
+    <div class="ctas">
+      <a class="btn primary" href="../pages/contact-us.html">Get Started</a>
+      <a class="btn secondary" href="#services">Explore Services</a>
+    </div>
+  </header>
+
+  <!-- ✅ Why Data Entry with iConnecto -->
+  <section>
+    <div class="section-head">
+      <h2 class="section-title">Why Choose iConnecto for Data Entry?</h2>
+      <p class="section-sub">We deliver precision, confidentiality, and efficiency in every project. From bulk data processing to detailed entry tasks, we’ve got you covered.</p>
+    </div>
+    <div class="grid-3">
+      <div class="service-card">
+        <div class="title">Accuracy First</div>
+        <p>We maintain strict quality checks to ensure every entry is correct, reducing costly mistakes.</p>
+      </div>
+      <div class="service-card">
+        <div class="title">Scalable Solutions</div>
+        <p>Whether you need small tasks or large projects, our team adapts to your requirements.</p>
+      </div>
+      <div class="service-card">
+        <div class="title">Secure Handling</div>
+        <p>Your business data is safe with us — we prioritize confidentiality and secure practices.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Data Entry Services -->
+  <section id="services">
+    <div class="section-head">
+      <h2 class="section-title">Our Data Entry Services</h2>
+      <p class="section-sub">A full range of services to streamline your business operations and save valuable time.</p>
+    </div>
+    <div class="grid-3">
+      <div class="service-card">
+        <div class="title">Online & Offline Data Entry</div>
+        <p>Efficient entry of business data from various sources into digital systems.</p>
+        <a class="learn" href="#">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="title">Data Cleaning & Validation</div>
+        <p>We refine, validate, and clean data to keep your databases consistent and usable.</p>
+        <a class="learn" href="#">Learn more →</a>
+      </div>
+      <div class="service-card">
+        <div class="title">Excel & Spreadsheet Management</div>
+        <p>Professional handling of complex spreadsheets, formatting, and analysis-ready data.</p>
+        <a class="learn" href="#">Learn more →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Final CTA -->
+  <section>
+    <div class="final-cta" style="text-align:center;max-width:700px;margin:0 auto;">
+      <h2>Focus on Growth, We Handle Your Data</h2>
+      <p>Let iConnecto take care of repetitive data entry tasks while you scale your business operations.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+        <a class="btn primary" href="../pages/contact-us.html">Get a Free Quote</a>
+        <a class="btn secondary" href="mailto:hello@iconecto.net">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <div>© <span id="yr"></span> © 2025 iConnecto. All rights reserved. Designed and developed by Abuhuraira.</div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Hamburger toggle
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+    }
+  });
+
+  // Dropdown toggle for mobile
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.querySelector(".dropdown");
+    const dropdownLink = dropdown?.querySelector("a");
+    const dropdownMenu = dropdown?.querySelector(".dropdown-menu");
+
+    if (dropdown && dropdownLink && dropdownMenu) {
+      dropdownLink.addEventListener("click", (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          dropdownMenu.classList.toggle("show");
+          dropdown.classList.toggle("open");
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- 🔹 Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shopify Store Management — iConnecto</title>
+  <meta name="description" content="Professional Shopify store management services: theme customization, speed optimization, and conversion-focused solutions with iConnecto." />
+  
+  <link rel="stylesheet" href="../styles/global.css"> <!-- ✅ reuse same CSS -->
+  <style>
+  :root {
+  --bg:#0b0b0d;
+  --panel:#0f1720;
+  --muted:#9aa3b2;
+  --accent:#a855f7;
+  --card:#0f1724;
+  --glass: rgba(255,255,255,0.03);
+  --radius:20px;
+  --maxw:1200px;
+  --gap:20px;
+  --fw-medium:600;
+  color-scheme: dark;
+}
+
+/* Reset & Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg, var(--bg) 0%, #071018 100%);
+  color:#e6eef6;
+  line-height:1.45;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+
+/* 🔹 Navbar */
+.navbar{position:sticky;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10;color:#fff;background:#000}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{height:50px;width:auto;object-fit:contain}
+.logo-text-block{display:flex;flex-direction:column;line-height:1.1}
+.logo-text{font-size:20px;font-weight:bold;text-transform:uppercase;color:#fff}
+.logo-tagline{font-size:12px;font-weight:300;color:#ccc}
+.logo-link{text-decoration:none;color:inherit;display:flex;align-items:center}
+.nav-links ul{list-style:none;display:flex;flex-wrap:wrap;gap:20px;font-size:14px;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:purple}
+.call a{color:#fff;font-weight:500;display:flex;align-items:center;gap:6px;font-size:14px;transition:.3s;padding:6px 10px;border-radius:6px}
+.call a:hover{color:#bb86fc;transform:scale(1.08);box-shadow:0 0 8px #bb86fc88;background:rgba(255,255,255,.05)}
+.hamburger{display:none}
+.nav-link{color:#000;text-decoration:none;padding:10px}
+.nav-link.active{color:purple;font-weight:bold;border-bottom:2px solid purple}
+
+
+
+
+/* 🔹 Dropdown */
+.dropdown{position:relative;}
+.dropdown > a{display:flex;align-items:center;gap:4px;}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:220px;background:#000;
+  border-radius:6px;padding:8px 0;z-index:999;}
+.dropdown-menu li{list-style:none;}
+.dropdown-menu li a{display:none;padding:8px 14px;color:white;}
+.dropdown-menu li a:hover{background:#222;color:var(--accent);}
+.dropdown:hover .dropdown-menu li a{display:block;}
+.dropdown i{font-size:.75rem;}
+@media (max-width:768px){
+  .hamburger{display:block;position:absolute;right:20px;top:25px;z-index:20;}
+  .nav-links{display:none;flex-direction:column;background:rgba(0,0,0,.95);
+    position:absolute;top:100%;left:0;width:100%;padding:20px;}
+  .nav-links ul{flex-direction:column;gap:16px;}
+  .nav-links.show{display:flex;}
+  .dropdown-menu{display:none;flex-direction:column;}
+  .dropdown-menu.show{display:flex;}
+  .dropdown.open > a i{transform:rotate(180deg);transition:.3s;}
+}
+
+/* 🔹 Hero */
+.hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:48px 16px;}
+.hero-inner{display:flex;flex-direction:column;gap:18px;}
+.h-title{font-size:clamp(28px,4.5vw,44px);font-weight:700;letter-spacing:-.02em;
+  background:linear-gradient(90deg,#a855f7,#6366f1,#9333ea);-webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;background-size:200% auto;animation:gradient-move 4s linear infinite;}
+@keyframes gradient-move{0%{background-position:0% center;}100%{background-position:200% center;}}
+.h-sub{color:var(--muted);max-width:720px;}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;
+  font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.03);overflow:hidden;}
+.btn:active{transform:translateY(1px)}
+.primary{background:linear-gradient(90deg,var(--accent),#7c6df7);color:white;
+  box-shadow:0 10px 30px rgba(168,85,247,.25);}
+.secondary{border:1px solid rgba(255,255,255,.06);color:var(--muted);}
+.btn.primary::after{content:"";position:absolute;top:0;left:-50%;width:50%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);}
+.btn.primary:hover::after{animation:shine 1s ease forwards;}
+@keyframes shine{100%{left:120%;}}
+.hero-card{border-radius:22px;overflow:hidden;min-height:260px;
+  border:1px solid rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 30px rgba(2,6,23,.6);}
+.hero-card img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease;}
+.hero-card img.visible{transform:scale(1.05)}
+
+/* 🔹 Section styles */
+section{padding:56px 0;border-top:1px solid rgba(255,255,255,.02);}
+.section-head{max-width:900px;margin:0 auto;text-align:center;}
+.section-title{font-size:34px;font-weight:700;margin:0 0 12px;text-align:center;}
+.section-sub{color:var(--muted);margin-top:10px;font-size:18px;text-align:center;
+  max-width:800px;margin-left:auto;margin-right:auto;}
+
+/* 🔹 Cards */
+.compare,.services-grid,.grid-3{display:grid;gap:18px;margin-top:22px;}
+.card,.service-card,.feature{background:var(--card);border-radius:18px;padding:18px;
+  border:1px solid rgba(255,255,255,.03);transition:.3s;}
+.card:hover,.service-card:hover,.feature:hover{transform:translateY(-6px) scale(1.02);
+  border-color:var(--accent);box-shadow:0 0 20px rgba(168,85,247,.4);}
+.card h3{margin:0 0 10px;font-size:18px;}
+.card ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.6;}
+.service-card .title{font-size:16px;font-weight:700;}
+.service-card p{color:var(--muted);margin-top:8px;}
+.learn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--accent);font-weight:600;}
+
+/* 🔹 Support */
+.support{display:flex;gap:16px;align-items:center;justify-content:space-between;
+  padding:20px;border-radius:14px;
+  background:linear-gradient(90deg,rgba(168,85,247,.05),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.03);}
+.support p{margin:0;color:var(--muted)}
+
+/* 🔹 Final CTA */
+.final-cta{display:flex;flex-direction:column;align-items:center;gap:14px;
+  padding:28px;border-radius:18px;
+  background:linear-gradient(90deg,rgba(168,85,247,.06),rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.03)}
+.final-cta p{color:var(--muted);max-width:900px;text-align:center}
+
+/* 🔹 Footer */
+footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
+
+/* 🔹 Animations */
+.fade-up{opacity:0;transform:translateY(12px);animation:up .7s cubic-bezier(.2,.9,.3,1) forwards}
+.fade-delay-1{animation-delay:.08s}
+.fade-delay-2{animation-delay:.16s}
+.fade-delay-3{animation-delay:.24s}
+@keyframes up{to{opacity:1;transform:none}}
+
+/* 🔹 Responsive */
+@media(min-width:900px){
+  .hero{grid-template-columns:1fr 460px;padding:56px 0;}
+  .compare{grid-template-columns:1fr 1fr;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .services-grid{grid-template-columns:repeat(3,1fr);}
+  .section-head{display:flex;flex-direction:column;align-items:center;}
+}
+@media(max-width:420px){
+  .hero{padding:28px 12px;}
+  .hero-card{min-height:180px;}
+  .btn{padding:10px 14px;border-radius:12px;}
+}
+@media (max-width:768px){
+  .dropdown-menu{position:static!important;display:block;height:0;overflow:hidden;
+    background:#111;border-radius:6px;margin:0;padding:0;transition:height .3s ease}
+  .dropdown-menu li{list-style:none}
+  .dropdown-menu li a{display:block;padding:10px 16px;color:#fff}
+  .dropdown.open .dropdown-menu{height:auto}
+}
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+<!-- ✅ Navbar -->
+<header class="navbar">
+  <a href="../index.html" class="logo-link">
+    <div class="logo">
+      <img src="/images/ChatGPT Image Aug 20, 2025, 03_59_59 PM.png" alt="iConnecto Logo" class="logo-img" />
+      <div class="logo-text-block">
+        <div class="logo-text">iconnecto</div>
+        <div class="logo-tagline">Driven to Deliver, Connected to You</div>
+      </div>
+    </div>
+  </a>
+  <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+
+  <nav class="nav-links">
+    <ul>
+      <li class="dropdown">
+        <a href="#">Services <i class="fas fa-chevron-down"></i></a>
+        <ul class="dropdown-menu">
+          <li><a href="/ser.html">Web Development</a></li>
+          <li><a href="/shopy.html">Shopify Store Management</a></li>
+          <li><a href="data-entry.html">Data Entry</a></li>
+          <li><a href="graphic-design.html">Graphic Design</a></li>
+        </ul>
+      </li>
+      <li><a href="../pages/blogs.html" class="nav-link">Blogs</a></li>
+      <li><a href="/referral_rewards_app/referral_rewards_app/public/reward.html" class="nav-link">Reward</a></li>
+      <li><a href="about-us.html" class="nav-link">About Us</a></li>
+      <li><a href="contact-us.html" class="nav-link">Contact Us</a></li>
+      <li>
+        <a href="https://wa.me/923484243795" target="_blank" class="nav-link">
+          <i class="fab fa-whatsapp"></i> +92 348 4243795
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <!-- ✅ HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <h1 class="h-title">Shopify Store Management Made Simple</h1>
+        <p class="h-sub">
+          We help businesses set up, customize, and optimize their Shopify stores — from navigation to checkout — ensuring speed, usability, and conversions.
+        </p>
+      </div>
+      <div class="ctas fade-up fade-delay-1">
+        <a class="btn primary" href="../pages/contact-us.html">Start Your Shopify Project</a>
+        <a class="btn secondary" href="#services">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-card fade-up fade-delay-2">
+      <img src="https://images.unsplash.com/photo-1519222970733-f546218fa6d7?q=80&w=1400&auto=format&fit=crop" alt="Shopify store management illustration">
+    </div>
+  </header>
+
+  <!-- ✅ Why Shopify with iConnecto -->
+  <section aria-labelledby="why-title">
+    <div class="section-head">
+      <div>
+        <h2 id="why-title" class="section-title">Why Manage Shopify with iConnecto?</h2>
+        <p class="section-sub">We don’t just run stores — we help businesses thrive by optimizing sales, improving customer experience, and automating workflows.</p>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:16px">
+      <div class="feature fade-up">
+        <h4>Custom Store Setup</h4>
+        <p>From scratch builds to redesigns — we configure Shopify themes, layouts, and features to fit your brand.</p>
+      </div>
+      <div class="feature fade-up fade-delay-1">
+        <h4>Product & Inventory Management</h4>
+        <p>Effortless product uploads, categorization, and stock management to keep your store organized.</p>
+      </div>
+      <div class="feature fade-up fade-delay-2">
+        <h4>Conversion Optimization</h4>
+        <p>We refine checkout flows, speed, and SEO to ensure visitors become paying customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Shopify Services -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="section-head">
+      <h2 id="services-title" class="section-title">Our Shopify Services</h2>
+      <p class="section-sub">Everything you need to launch, scale, and optimize your Shopify store with confidence.</p>
+    </div>
+
+    <div class="services-grid" style="margin-top:18px">
+      <div class="service-card fade-up">
+        <div class="title">Theme Customization</div>
+        <p>Modify Shopify themes to match your brand identity with responsive, modern layouts.</p>
+        <a class="learn" href="#">Learn more →</a>
+      </div>
+      <div class="service-card fade-up fade-delay-1">
+        <div class="title">App Integration</div>
+        <p>Connect Shopify with marketing, payments, and CRM tools for seamless automation.</p>
+        <a class="learn" href="#">Learn more →</a>
+      </div>
+      <div class="service-card fade-up fade-delay-2">
+        <div class="title">Performance & SEO</div>
+        <p>Speed optimization and SEO best practices to boost visibility and improve rankings.</p>
+        <a class="learn" href="#">Learn more →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Final CTA -->
+  <section aria-labelledby="cta-title">
+    <div class="final-cta fade-up">
+      <h2 id="cta-title">Let’s Scale Your Shopify Store</h2>
+      <p>From setup to optimization, we manage everything so you can focus on sales and growth.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+        <a class="btn primary" href="../pages/contact-us.html">Book a Call</a>
+        <a class="btn secondary" href="mailto:hello@iconecto.net">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <div>© <span id="yr"></span> © 2025 iConnecto. All rights reserved. Designed and developed by Abuhuraira.</div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Fade-up animation
+  (function(){
+    const els = document.querySelectorAll('.fade-up');
+    if(!('IntersectionObserver' in window)) {
+      els.forEach(e=>e.classList.add('visible'));
+      return;
+    }
+    const io = new IntersectionObserver((items)=>{
+      items.forEach(i=>{
+        if(i.isIntersecting){ i.target.style.animationPlayState = 'running'; i.target.classList.add('visible'); io.unobserve(i.target) }
+      });
+    },{threshold:0.14});
+    els.forEach(e=>{
+      e.style.animationPlayState='paused';
+      io.observe(e);
+    });
+  })();
+
+  // Mobile dropdown toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownLink = dropdown?.querySelector("a");
+  const dropdownMenu = dropdown?.querySelector(".dropdown-menu");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (dropdown && dropdownLink && dropdownMenu) {
+    dropdownLink.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle("show"); // toggle list
+        dropdown.classList.toggle("open");     // rotate arrow
+      }
+    });
+  }
+
+  // Close nav when clicking a normal link
+  const navItems = document.querySelectorAll(".nav-links a:not(.dropdown > a)");
+  navItems.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768 && navLinks.classList.contains("show")) {
+        navLinks.classList.remove("show");
+      }
+    });
+  });
+});
+
+// Hamburger menu toggle
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+});
+
+
+
+
+</script>
+
+</body>
+</html>
