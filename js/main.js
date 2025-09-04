@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Swap typing line after preloader
+
 
 
 // Hamburger menu toggle

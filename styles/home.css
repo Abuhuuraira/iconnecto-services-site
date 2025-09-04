@@ -608,24 +608,12 @@ body, html {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0);
 }
 .service-box h4, .service-box p, .service-box a {
   position: relative;
   z-index: 2;
 }
-.service-box h4 { font-size: 2.5rem; margin-bottom: 20px; text-shadow: var(--text-shadow); }
-.service-box p { font-size: 1.2rem; max-width: 700px; margin-bottom: 30px; line-height: 1.6; text-shadow: 1px 1px 6px rgba(0,0,0,0.6); }
-.service-box a {
-  padding: 12px 24px;
-  background: var(--primary);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-.service-box a:hover { background: var(--primary-hover); }
-
 
 
 
