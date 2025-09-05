@@ -31,12 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
 const serviceBoxes = document.querySelectorAll('.service-box');
 
 window.addEventListener('scroll', () => {
-  const scrollPos = window.scrollY + window.innerHeight/2;
-  serviceBoxes.forEach(box => {
-    if(box.offsetTop < scrollPos) box.classList.add('active');
-    else box.classList.remove('active');
+  const scrollPos = window.scrollY + window.innerHeight / 2;
+
+  serviceBoxes.forEach((box) => {
+    if (box.offsetTop < scrollPos) {
+      box.classList.add('active');
+    } else {
+      box.classList.remove('active');
+    }
   });
 });
+
 
 // Fade in testimonial cards
 document.addEventListener("DOMContentLoaded", function () {
