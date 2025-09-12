@@ -37,7 +37,11 @@ a{color:inherit;text-decoration:none}
 
 /* 🔹 Dropdown */
 .dropdown{position:relative;}
-.dropdown > a{display:flex;align-items:center;gap:4px;}
+.dropdown > a i {
+  display: inline-block; /* ensure transform works properly */
+  transform: translateY(1px); /* move arrow 2px down */
+  font-size: 0.75rem; /* keep your original size */
+}
 .dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:220px;background:#000;
   border-radius:6px;padding:8px 0;z-index:999;}
 .dropdown-menu li{list-style:none;}
