@@ -33,7 +33,7 @@ body{
   line-height:1.45;
 }
 a{color:inherit;text-decoration:none}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+.wrap{background-color: white;}
 
 /* 🔹 Navbar */
 .navbar{position:sticky;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10;color:#fff;background:#000}
@@ -75,6 +75,13 @@ a{color:inherit;text-decoration:none}
   .dropdown-menu.show{display:flex;}
   .dropdown.open > a i{transform:rotate(180deg);transition:.3s;}
 }
+@media (max-width:768px){
+  .dropdown-menu{position:static!important;display:block;height:0;overflow:hidden;
+    background:#111;border-radius:6px;margin:0;padding:0;transition:height .3s ease}
+  .dropdown-menu li{list-style:none}
+  .dropdown-menu li a{display:block;padding:10px 16px;color:#fff}
+  .dropdown.open .dropdown-menu{height:auto}
+}
 
 
   /* Hero */
@@ -84,6 +91,7 @@ a{color:inherit;text-decoration:none}
     gap:24px;
     align-items:center;
     padding:48px 16px;
+    background-color: black;
   }
   .hero-inner{display:flex;flex-direction:column;gap:18px}
   .h-title{
@@ -93,7 +101,9 @@ a{color:inherit;text-decoration:none}
 
     /* gradient text animation */
     background: linear-gradient(90deg, #a855f7, #6366f1, #9333ea);
-    -webkit-background-clip: text;
+ background-clip: text;
+-webkit-background-clip: text;
+
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
     animation: gradient-move 4s linear infinite;
@@ -144,6 +154,266 @@ a{color:inherit;text-decoration:none}
   .hero-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s ease}
   .hero-card img.visible{transform:scale(1.05)}
 
+
+.custom-template-section {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 8%;
+  border-bottom: 2px solid #444;
+}
+
+.custom-template-image,
+.custom-template-text {
+  flex: 1; /* 50% width each on large screens */
+}
+
+.custom-template-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 15px;
+  text-align: center;       /* Center align */
+  white-space: nowrap;      /* Prevent line breaks */
+  overflow: hidden;         /* Hide overflow if it's too long */
+  text-overflow: ellipsis;  /* Show "..." if it gets too long */
+}
+.section-title h2{
+  color: black;
+}
+.custom-template-text p {
+  color: #000000;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.custom-template-text h2{
+  color: black;
+}
+
+/* ✅ Tablet (width ≤ 1024px) */
+@media (max-width: 1024px) {
+  .custom-template-section {
+    gap: 30px;
+    padding: 50px 6%;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ✅ Mobile (width ≤ 900px) */
+@media (max-width: 900px) {
+  .custom-template-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 5%;
+    gap: 25px;
+  }
+
+  .custom-template-image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .custom-template-text p {
+    font-size: 1rem;
+  }
+}
+
+section[aria-labelledby="why-title"] {
+  color: black;
+  border-bottom: 2px solid #444; /* Separator line */
+  padding-bottom: 40px; /* Adds space before the line */
+  margin-bottom: 40px; /* Adds space after the line */
+}
+
+.services-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 8%;
+  border-bottom: 2px solid #444;
+}
+
+.services-image {
+  flex: 1;
+  animation: slideInLeft 0.8s ease forwards;
+  opacity: 0;
+}
+
+.services-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.services-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInRight 0.8s ease forwards;
+  opacity: 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.section-sub {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ✅ Animations */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ✅ Responsive */
+@media (max-width: 900px) {
+  .services-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .services-image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .services-content {
+    text-align: center;
+  }
+}
+
+.services-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 8%;
+  border-bottom: 2px solid #444;
+}
+
+.services-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInLeft 0.8s ease forwards;
+  opacity: 0;
+}
+
+.services-image {
+  flex: 1;
+  animation: slideInRight 0.8s ease forwards;
+  opacity: 0;
+}
+
+.services-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.section-sub {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ✅ Animations */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ✅ Responsive */
+@media (max-width: 900px) {
+  .services-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .services-image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .services-content {
+    text-align: center;
+  }
+}
+
+
  /* Section styles */
 section {
   padding: 56px 0;
@@ -164,7 +434,7 @@ section {
 }
 
 .section-sub {
-  color: var(--muted);
+  color:black;
   margin-top: 10px;
   font-size: 18px;         /* ✅ slightly larger subtitle */
   text-align: center;      /* ✅ center subtitle */
@@ -203,24 +473,7 @@ section {
   }
   .support p{margin:0;color:var(--muted)}
 
-  /* Final CTA */
-  .final-cta{display:flex;flex-direction:column;align-items:center;gap:14px;
-    padding:28px;border-radius:18px;
-    background:linear-gradient(90deg, rgba(168,85,247,0.06), rgba(255,255,255,0.01));
-    border:1px solid rgba(255,255,255,0.03)
-  }
-  .final-cta p{color:var(--muted);max-width:900px;text-align:center}
-
-  /* Footer */
-  footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
-
-  /* animations */
-  .fade-up{opacity:0;transform:translateY(12px);animation:up .7s cubic-bezier(.2,.9,.3,1) forwards}
-  .fade-delay-1{animation-delay:.08s}
-  .fade-delay-2{animation-delay:.16s}
-  .fade-delay-3{animation-delay:.24s}
-  @keyframes up{to{opacity:1;transform:none}}
-
+  
   /* responsive */
 /* ===========================
    📱 Extra Small Phones (≤420px)
@@ -367,13 +620,46 @@ section {
   }
 }
 
-@media (max-width:768px){
-  .dropdown-menu{position:static!important;display:block;height:0;overflow:hidden;
-    background:#111;border-radius:6px;margin:0;padding:0;transition:height .3s ease}
-  .dropdown-menu li{list-style:none}
-  .dropdown-menu li a{display:block;padding:10px 16px;color:#fff}
-  .dropdown.open .dropdown-menu{height:auto}
+
+/* === FAQs (scoped) === */
+.faq-section{
+  --fq-bg:#0b0b0f; --fq-card:#12121a; --fq-border:#24243a; --fq-accent:#9C4DF4;
+  background: linear-gradient(180deg,#0b0b0f, #0d0d14);
+  color:#fff; padding: 80px 24px;
 }
+.faq-wrap{ max-width: 900px; margin: 0 auto; }
+.faq-head{ text-align:center; margin-bottom: 26px; }
+.faq-pill{
+  display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  background:#171725; color:#b5b9d3; padding:8px 12px; border-radius:999px; border:1px solid #24243a;
+}
+.faq-head h2{ font-size: clamp(28px, 4vw, 42px); font-weight:800; margin-top:10px; }
+.faq-head h2 span{ color: var(--fq-accent); }
+.faq-head p{ color:#cfd2e0; margin-top:8px; }
+
+.faq-list{ display:grid; gap:12px; margin-top: 10px; }
+.faq-item{
+  background: linear-gradient(180deg,#151522, #10101a);
+  border:1px solid var(--fq-border); border-radius:14px; overflow:hidden;
+}
+.faq-q{
+  width:100%; text-align:left; background:transparent; border:0; color:#fff;
+  padding:18px 18px; font-size:16px; font-weight:600; display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer;
+}
+.faq-q i{ transition: transform .25s ease; }
+.faq-item.open .faq-q i{ transform: rotate(180deg); }
+
+.faq-a{
+  display:grid; grid-template-rows: 0fr; transition: grid-template-rows .28s ease;
+}
+.faq-a > p{
+  overflow:hidden; margin:0; padding:0 18px 0; color:#cfd2e0; line-height:1.65; font-size:14px;
+}
+.faq-item.open .faq-a{ grid-template-rows: 1fr; }
+.faq-item.open .faq-a > p{ padding: 0 18px 16px; }
+
+.faq-item:hover{ border-color:#3b2d70; box-shadow: 0 12px 30px rgba(156,77,244,.14); }
 
 
 
@@ -457,37 +743,33 @@ section {
       </div>
     </header>
 
+ <div style="width:100%;height:2px;background-color:#444; "></div>
+
+
     <!-- Custom vs Template -->
-    <section aria-labelledby="cmp-title">
-      <div class="section-head">
-        <div>
-          <h2 id="cmp-title" class="section-title">Custom Websites vs Templates</h2>
-          <p class="section-sub">Ready-made templates can be economical but often limit customization and performance. A custom build unlocks unique layouts, advanced features, and long-term adaptability.</p>
-        </div>
-      </div>
+   <!-- Custom vs Template -->
+<section class="custom-template-section">
+  <!-- Left Side: Image -->
+  <div class="custom-template-image">
+    <img src="/images/4.jpg" alt="Custom vs Template Website">
+  </div>
 
-      <div class="compare">
-        <article class="card fade-up">
-          <h3>Custom Website</h3>
-          <ul>
-            <li>Reflects brand identity and values</li>
-            <li>Flexible architecture and integrations</li>
-            <li>Scales with your business needs</li>
-            <li>Improved UX and SEO performance</li>
-          </ul>
-        </article>
+  <!-- Right Side: Text -->
+  <div class="custom-template-text">
+    <h2 class="section-title">Custom Websites vs Templates</h2>
+    <p>
+      Ready-made templates can be economical and quick to deploy, but they often limit
+      customization, performance, and scalability. A custom website, on the other hand,
+      is designed specifically for your brand, supports advanced features, and grows with
+      your business — ensuring a unique look, better user experience, and improved SEO
+      performance.
+      
+    </p>
+  </div>
+</section>
 
-        <article class="card fade-up fade-delay-1">
-          <h3>Template Website</h3>
-          <ul>
-            <li>Limited customization and features</li>
-            <li>Similar look to competitors</li>
-            <li>Can restrict performance and UX</li>
-            <li>Harder to adapt as you grow</li>
-          </ul>
-        </article>
-      </div>
-    </section>
+
+
 
     <!-- Why Choose iConnecto -->
     <section aria-labelledby="why-title">
@@ -500,62 +782,91 @@ section {
 
       <div class="grid-3" style="margin-top:16px">
         <div class="feature fade-up">
-          <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
-          <h4>Unique Brand Identity</h4>
+          <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13;"></div>
+          <h4 style="color: white;">Unique Brand Identity</h4>
           <p style="color:var(--muted)">No generic molds. Your site is custom-crafted to match your brand, audience, and business objectives.</p>
         </div>
 
         <div class="feature fade-up fade-delay-1">
           <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
-          <h4>Future-Proof Flexibility</h4>
+          <h4 style="color: white;">Future-Proof Flexibility</h4>
           <p style="color:var(--muted)">Add features, integrate tools, and scale with confidence as trends and technologies evolve.</p>
         </div>
 
         <div class="feature fade-up fade-delay-2">
           <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
-          <h4>Results-Driven Delivery</h4>
+          <h4 style="color: white;">Results-Driven Delivery</h4>
+          <p style="color:var(--muted)">We don’t just launch pages—we build a marketing platform that supports growth and conversions.</p>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-top:16px">
+        <div class="feature fade-up">
+          <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
+          <h4 style="color: white;">Unique Brand Identity</h4>
+          <p style="color:var(--muted)">No generic molds. Your site is custom-crafted to match your brand, audience, and business objectives.</p>
+        </div>
+
+        <div class="feature fade-up fade-delay-1">
+          <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
+          <h4 style="color: white;">Future-Proof Flexibility</h4>
+          <p style="color:var(--muted)">Add features, integrate tools, and scale with confidence as trends and technologies evolve.</p>
+        </div>
+
+        <div class="feature fade-up fade-delay-2">
+          <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
+          <h4 style="color: white;">Results-Driven Delivery</h4>
           <p style="color:var(--muted)">We don’t just launch pages—we build a marketing platform that supports growth and conversions.</p>
         </div>
       </div>
     </section>
 
     <!-- Services -->
-    <section id="services" aria-labelledby="services-title">
-      <div class="section-head">
-        <div>
-          <h2 id="services-title" class="section-title">Our Web Development Services</h2>
-          <p class="section-sub">Whether you’re starting small or scaling globally, we design and build platforms that convert visitors into loyal customers.</p>
-        </div>
-      </div>
+<section id="services" class="services-section">
+  <!-- Left Side: Image -->
+  <div class="services-image">
+    <img src="/images/5.jpg" alt="Web Development Services">
+  </div>
 
-      <div class="services-grid" style="margin-top:18px">
-        <div class="service-card fade-up">
-          <div class="title">Shopify Web Development</div>
-          <p>Professional storefronts built for speed, structure, and conversion-focused UX. We configure navigation, customize themes, and optimize checkout flows.</p>
-          <a class="learn" href="#" aria-label="Learn more about Shopify development">Learn more →</a>
-        </div>
+  <!-- Right Side: Text -->
+  <div class="services-content">
+    <h2 class="section-title">Our Web Development Services</h2>
+    <p class="section-sub">
+      Whether you’re starting small or scaling globally, we design and build platforms
+      that convert visitors into loyal customers. Our team creates high-performance websites
+      with fast load speeds, mobile responsiveness, and SEO-friendly architecture — ensuring
+      your business stands out and grows online.
+    </p>
+  </div>
+</section>
 
-        <div class="service-card fade-up fade-delay-1">
-          <div class="title">E-commerce Development</div>
-          <p>Secure, scalable online stores with SEO-ready controls (editable URLs, meta titles & descriptions). Designed to convert and grow.</p>
-          <a class="learn" href="#" aria-label="Learn more about e-commerce development">Learn more →</a>
-        </div>
+<!-- Services -->
+<section id="services" class="services-section">
+  <!-- Left Side: Text -->
+  <div class="services-content">
+    <h2 class="section-title">Our Web Development Services</h2>
+    <p class="section-sub">
+      Whether you’re starting small or scaling globally, we design and build platforms
+      that convert visitors into loyal customers. Our team creates high-performance websites
+      with fast load speeds, mobile responsiveness, and SEO-friendly architecture — ensuring
+      your business stands out and grows online.
+    </p>
+  </div>
 
-        <div class="service-card fade-up fade-delay-2">
-          <div class="title">Custom Business Websites</div>
-          <p>Bespoke websites that reflect your brand identity and goals. Optimized landing pages, clear CTAs, and advanced SEO practices included.</p>
-          <a class="learn" href="#" aria-label="Learn more about custom websites">Learn more →</a>
-        </div>
-      </div>
-    </section>
+  <!-- Right Side: Image -->
+  <div class="services-image">
+    <img src="/images/5.jpg" alt="Web Development Services">
+  </div>
+</section>
 
-    <!-- Support -->
+<!-- Support -->
     <section aria-labelledby="support-title">
       <h2 id="support-title" class="section-title">Helpdesk & Ongoing Support</h2>
       <div style="margin-top:12px" class="support fade-up">
         <div>
-          <strong>Helpdesk & Maintenance</strong>
-          <p style="margin-top:6px">If your website encounters an error, our helpdesk makes it easy to report issues and get timely assistance. Flexible maintenance plans keep your platform secure and up to date.</p>
+          <h4 style="color: black;">Helpdesk & Maintenance</h4>
+          
+          <p style="margin-top:6px; color: black;">If your website encounters an error, our helpdesk makes it easy to report issues and get timely assistance. Flexible maintenance plans keep your platform secure and up to date.</p>
         </div>
         <div style="min-width:160px;text-align:right">
           <a class="btn primary" href="/support" title="Contact support">Get Support</a>
@@ -563,23 +874,93 @@ section {
       </div>
     </section>
 
-    <!-- Final CTA -->
-    <section aria-labelledby="cta-title">
-      <div class="final-cta fade-up">
-        <h2 id="cta-title" style="margin:0;font-size:20px">Let’s Build Your Website Today</h2>
-        <p>Tell us about your goals and we’ll propose a tailored plan—design, development, and growth strategy in one place.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-          <a class="btn primary" href="/contact">Book a Call</a>
-          <a class="btn secondary" href="mailto:hello@iconecto.net">Email Us</a>
+
+
+<!-- === FAQs === -->
+<section class="faq-section" id="faqs">
+  <div class="faq-wrap">
+    <div class="faq-head">
+      <span class="faq-pill">Have Questions?</span>
+      <h2>Frequently Asked <span>Questions</span></h2>
+      <p>Quick answers about pricing, timelines, onboarding, and support.</p>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <article class="faq-item">
+        <button class="faq-q">
+          How fast can you start on my project?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>Discovery call within 24 hours. Most projects kick off within 2–5 business days after scope approval.</p>
         </div>
-      </div>
-    </section>
+      </article>
 
-    <footer>
-      <div>© <span id="yr"></span> iConnecto. Built with simple HTML & CSS. Replace images and copy as needed.</div>
-    </footer>
+      <article class="faq-item">
+        <button class="faq-q">
+          Do you offer trial periods for Virtual Assistants?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>Yes — a 1–2 week pilot is available to verify fit, communication, and quality before scaling.</p>
+        </div>
+      </article>
 
+      <article class="faq-item">
+        <button class="faq-q">
+          What tools do you work with?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>We adapt to your stack — Google Workspace, Microsoft 365, Slack, Asana, Trello, Notion, Shopify, WordPress, HubSpot, CRM and more.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-q">
+          How do you ensure confidentiality and security?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>NDAs, role-based permissions, SOPs, password vaults, and secure handover. We follow least-privilege access.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-q">
+          Can I scale up or down anytime?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>Absolutely. Choose hourly, part-time, or full-time. Adjust monthly as needs change.</p>
+        </div>
+      </article>
+    </div>
   </div>
+</section>
+
+<!-- Tiny JS for FAQ accordion (put once, after your other scripts) -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const items = document.querySelectorAll('#faqList .faq-item .faq-q');
+  items.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const parent = btn.closest('.faq-item');
+      // close others (accordion behavior)
+      document.querySelectorAll('#faqList .faq-item.open').forEach(el=>{
+        if(el!==parent) el.classList.remove('open');
+      });
+      parent.classList.toggle('open');
+    });
+  });
+});
+</script>
+
+
+
+
+
+    
 
   <script>
 
