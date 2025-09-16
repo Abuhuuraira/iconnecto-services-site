@@ -5,114 +5,81 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Data Entry Services — iConnecto</title>
-  <meta name="description" content="Professional data entry services: accurate, fast, and reliable solutions for businesses. Outsource your data entry to iConnecto." />
-  
-  <link rel="stylesheet" href="../styles/global.css"> <!-- ✅ reuse same CSS -->
-  <style>
-  :root {
-    --bg:#0b0b0d;
-    --panel:#0f1720;
-    --muted:#9aa3b2;
-    --accent:#a855f7;
-    --card:#0f1724;
-    --glass: rgba(255,255,255,0.03);
-    --radius:20px;
-    --maxw:1200px;
-    --gap:20px;
-    --fw-medium:600;
-    color-scheme: dark;
-  }
+  <title>Custom Web Development Services — iConnecto</title>
+  <meta name="description" content="Custom web development services: Shopify, e-commerce, and bespoke business websites. Build a fast, SEO-friendly, conversion-focused site with iConnecto." />
+ <style>
+ :root {
+  --bg:#0b0b0d;
+  --panel:#0f1720;
+  --muted:#9aa3b2;
+  --accent:#a855f7;
+  --card:#0f1724;
+  --glass: rgba(255,255,255,0.03);
+  --radius:20px;
+  --maxw:1200px;
+  --gap:20px;
+  --fw-medium:600;
+  color-scheme: dark;
+}
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background:linear-gradient(180deg, var(--bg) 0%, #071018 100%);
-    color:#e6eef6;
-    line-height:1.45;
-  }
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+/* Reset & Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg, var(--bg) 0%, #071018 100%);
+  color:#e6eef6;
+  line-height:1.45;
+}
+a{color:inherit;text-decoration:none}
+.wrap{background-color: white;}
 
-  /* ✅ Navbar */
-  .navbar{position:sticky;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10;color:#fff;background:#000}
-  .logo{display:flex;align-items:center;gap:10px}
-  .logo-img{height:50px;width:auto;object-fit:contain}
-  .logo-text-block{display:flex;flex-direction:column;line-height:1.1}
-  .logo-text{font-size:20px;font-weight:bold;text-transform:uppercase;color:#fff}
-  .logo-tagline{font-size:12px;font-weight:300;color:#ccc}
-  .logo-link{text-decoration:none;color:inherit;display:flex;align-items:center}
-  .nav-links ul{list-style:none;display:flex;flex-wrap:wrap;gap:20px;font-size:14px;margin:0;padding:0}
-  .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color .3s}
-  .nav-links a:hover{color:purple}
-  .hamburger{display:none}
+/* 🔹 Navbar */
+.navbar{position:sticky;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10;color:#fff;background:#000}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{height:50px;width:auto;object-fit:contain}
+.logo-text-block{display:flex;flex-direction:column;line-height:1.1}
+.logo-text{font-size:20px;font-weight:bold;text-transform:uppercase;color:#fff}
+.logo-tagline{font-size:12px;font-weight:300;color:#ccc}
+.logo-link{text-decoration:none;color:inherit;display:flex;align-items:center}
+.nav-links ul{list-style:none;display:flex;flex-wrap:wrap;gap:20px;font-size:14px;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:purple}
+.call a{color:#fff;font-weight:500;display:flex;align-items:center;gap:6px;font-size:14px;transition:.3s;padding:6px 10px;border-radius:6px}
+.call a:hover{color:#bb86fc;transform:scale(1.08);box-shadow:0 0 8px #bb86fc88;background:rgba(255,255,255,.05)}
+.hamburger{display:none}
+.nav-link{color:#000;text-decoration:none;padding:10px}
+.nav-link.active{color:purple;font-weight:bold;border-bottom:2px solid purple}
 
-  /* ✅ Dropdown */
-  .dropdown{position:relative;}
-  .dropdown > a{display:flex;align-items:center;gap:4px;}
-  .dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:220px;background:#000;
-    border-radius:6px;padding:8px 0;z-index:999;}
-  .dropdown-menu li{list-style:none;}
-  .dropdown-menu li a{display:none;padding:6px 14px;color:white;font-size:14px;}
-  .dropdown-menu li a:hover{background:#222;color:var(--accent);}
-  .dropdown:hover .dropdown-menu li a{display:block;}
-  .dropdown i{font-size:.75rem;}
-  @media (max-width:768px){
-    .hamburger{display:block;position:absolute;right:20px;top:25px;z-index:20;}
-    .nav-links{display:none;flex-direction:column;background:rgba(0,0,0,.95);
-      position:absolute;top:100%;left:0;width:100%;padding:20px;}
-    .nav-links ul{flex-direction:column;gap:12px;}
-    .nav-links.show{display:flex;}
-    .dropdown-menu{display:none;flex-direction:column;}
-    .dropdown-menu.show{display:flex;}
-  }
 
-  /* ✅ Hero (no image) */
-  .hero{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:80px 16px;
-    gap:20px;
-  }
-  .h-title{
-    font-size:clamp(28px,4.5vw,44px);
-    font-weight:700;
-    letter-spacing:-.02em;
-    background:linear-gradient(90deg,#a855f7,#6366f1,#9333ea);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    background-size:200% auto;
-    animation:gradient-move 4s linear infinite;
-    margin:0;
-  }
-  @keyframes gradient-move{0%{background-position:0% center;}100%{background-position:200% center;}}
-  .h-sub{color:var(--muted);max-width:720px;margin:0 auto;}
-  .ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;
-    font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,.03);}
-  .primary{background:linear-gradient(90deg,var(--accent),#7c6df7);color:white;}
-  .secondary{border:1px solid rgba(255,255,255,.06);color:var(--muted);}
 
-  /* ✅ Sections */
-  section{padding:56px 0;border-top:1px solid rgba(255,255,255,.02);}
-  .section-head{text-align:center;max-width:900px;margin:0 auto;}
-  .section-title{font-size:34px;font-weight:700;margin:0 0 12px;}
-  .section-sub{color:var(--muted);margin-top:10px;font-size:18px;max-width:800px;margin:auto;}
 
-  /* ✅ Cards */
-  .grid-3{display:grid;gap:18px;margin-top:22px;}
-  .service-card{background:var(--card);border-radius:18px;padding:18px;border:1px solid rgba(255,255,255,.03);transition:.3s;}
-  .service-card:hover{transform:translateY(-6px) scale(1.02);border-color:var(--accent);box-shadow:0 0 20px rgba(168,85,247,.4);}
-  .service-card .title{font-size:16px;font-weight:700;}
-  .service-card p{color:var(--muted);margin-top:8px;}
-  .learn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--accent);font-weight:600;}
-
-  @media (max-width:768px){
+/* 🔹 Dropdown */
+.dropdown{position:relative;}
+.dropdown > a i {
+  display: inline-block; /* ensure transform works properly */
+  transform: translateY(1px); /* move arrow 2px down */
+  font-size: 0.75rem; /* keep your original size */
+}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:220px;background:#000;
+  border-radius:6px;padding:8px 0;z-index:999;}
+.dropdown-menu li{list-style:none;}
+.dropdown-menu li a{display:none;padding:8px 14px;color:white;}
+.dropdown-menu li a:hover{background:#222;color:var(--accent);}
+.dropdown:hover .dropdown-menu li a{display:block;}
+.dropdown i{font-size:.75rem;}
+@media (max-width:768px){
+  .hamburger{display:block;position:absolute;right:20px;top:25px;z-index:20;}
+  .nav-links{display:none;flex-direction:column;background:rgba(0,0,0,.95);
+    position:absolute;top:100%;left:0;width:100%;padding:20px;}
+  .nav-links ul{flex-direction:column;gap:16px;}
+  .nav-links.show{display:flex;}
+  .dropdown-menu{display:none;flex-direction:column;}
+  .dropdown-menu.show{display:flex;}
+  .dropdown.open > a i{transform:rotate(180deg);transition:.3s;}
+}
+@media (max-width:768px){
   .dropdown-menu{position:static!important;display:block;height:0;overflow:hidden;
     background:#111;border-radius:6px;margin:0;padding:0;transition:height .3s ease}
   .dropdown-menu li{list-style:none}
@@ -121,158 +88,1464 @@
 }
 
 
-  /* ✅ Footer */
-  footer{padding:28px 0;color:var(--muted);font-size:13px;text-align:center}
-  </style>
+  /* Hero */
+  .hero{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:24px;
+    align-items:center;
+    padding:48px 16px;
+    background-color: black;
+  }
+  .hero-inner{display:flex;flex-direction:column;gap:18px}
+  .h-title{
+    font-size:clamp(28px,4.5vw,44px);
+    font-weight:700;
+    letter-spacing:-0.02em;
+
+    /* gradient text animation */
+    background: linear-gradient(90deg, #a855f7, #6366f1, #9333ea);
+ background-clip: text;
+-webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: gradient-move 4s linear infinite;
+  }
+  @keyframes gradient-move {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+  .h-sub{color:var(--muted);max-width:720px}
+  .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    position: relative;
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 18px;border-radius:14px;font-weight:600;cursor:pointer;
+    border:1px solid rgba(255,255,255,0.03);
+    overflow: hidden;
+  }
+  .btn:active{transform:translateY(1px)}
+  .primary{
+    background:linear-gradient(90deg,var(--accent),#7c6df7);
+    color:white;
+    box-shadow:0 10px 30px rgba(168,85,247,0.25);
+  }
+  .secondary{border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+  /* button shine */
+  .btn.primary::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -50%;
+    width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-20deg);
+  }
+  .btn.primary:hover::after {
+    animation: shine 1s ease forwards;
+  }
+  @keyframes shine {
+    100% { left: 120%; }
+  }
+
+  .hero-card{
+    border-radius:22px;overflow:hidden;min-height:260px;
+    border:1px solid rgba(255,255,255,0.04);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  }
+  .hero-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s ease}
+  .hero-card img.visible{transform:scale(1.05)}
+
+
+.custom-template-section {
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 8%;
+  
+}
+
+.custom-template-image,
+.custom-template-text {
+  flex: 1; /* 50% width each on large screens */
+}
+
+.custom-template-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 15px;
+  text-align: center;       /* Center align */
+  white-space: nowrap;      /* Prevent line breaks */
+  overflow: hidden;         /* Hide overflow if it's too long */
+  text-overflow: ellipsis;  /* Show "..." if it gets too long */
+}
+.section-title h2{
+  color: black;
+}
+.custom-template-text p {
+  color: #000000;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.custom-template-text h2{
+  color: black;
+}
+
+/* ✅ Tablet (width ≤ 1024px) */
+@media (max-width: 1024px) {
+  .custom-template-section {
+    gap: 30px;
+    padding: 50px 6%;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ✅ Mobile (width ≤ 900px) */
+@media (max-width: 900px) {
+  .custom-template-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 5%;
+    gap: 25px;
+  }
+
+  .custom-template-image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .custom-template-text p {
+    font-size: 1rem;
+  }
+}
+
+section[aria-labelledby="why-title"] {
+  color: black;
+ 
+  padding-bottom: 40px; /* Adds space before the line */
+  margin-bottom: 40px; /* Adds space after the line */
+}
+
+.services-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 8%;
+ 
+}
+
+.services-image {
+  flex: 1;
+  animation: slideInLeft 0.8s ease forwards;
+  opacity: 0;
+}
+
+
+.services-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.services-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInRight 0.8s ease forwards;
+  opacity: 0;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.section-sub {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ✅ Animations */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ✅ Responsive */
+@media (max-width: 900px) {
+  .services-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .services-image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .services-content {
+    text-align: center;
+  }
+}
+
+.services-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 8%;
+  
+}
+
+.services-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: slideInLeft 0.8s ease forwards;
+  opacity: 0;
+}
+
+.services-image {
+  flex: 1;
+  animation: slideInRight 0.8s ease forwards;
+  opacity: 0;
+}
+
+.services-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.section-sub {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* ✅ Animations */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ✅ Responsive */
+@media (max-width: 900px) {
+  .services-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .services-image img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .services-content {
+    text-align: center;
+  }
+}
+
+
+ /* Section styles */
+section {
+  padding: 56px 0;
+  border-top: 1px solid rgba(255,255,255,0.02);
+}
+
+.section-head {
+  max-width: 900px;
+  margin: 0 auto;          /* ✅ center container */
+  text-align: center;      /* ✅ center everything */
+}
+
+.section-title {
+  font-size: 34px;         /* ✅ bigger font size */
+  font-weight: 700;
+  margin: 0 0 12px;        /* ✅ space below */
+  text-align: center;      /* ✅ center text */
+}
+
+.section-sub {
+  color:black;
+  margin-top: 10px;
+  font-size: 18px;         /* ✅ slightly larger subtitle */
+  text-align: center;      /* ✅ center subtitle */
+  max-width: 800px;        /* ✅ keep tidy */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  /* Comparison & Services cards */
+  .compare, .services-grid, .grid-3 {
+    display:grid;gap:18px;margin-top:22px;
+  }
+  .card, .service-card, .feature {
+    background:var(--card);
+    border-radius:18px;
+    padding:18px;
+    border:1px solid rgba(255,255,255,0.03);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .card:hover, .service-card:hover, .feature:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(168,85,247,0.4); /* purple glow */
+  }
+  .card h3{margin:0 0 10px 0;font-size:18px}
+  .card ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.6}
+  .service-card .title{font-size:16px;font-weight:700}
+  .service-card p{color:var(--muted);margin-top:8px}
+  .learn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:var(--accent);font-weight:600}
+
+  /* Support strip */
+  .support{display:flex;gap:16px;align-items:center;justify-content:space-between;
+    padding:20px;border-radius:14px;
+    background:linear-gradient(90deg, rgba(168,85,247,0.05), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.03)
+  }
+  .support p{margin:0;color:var(--muted)}
+
+  
+  /* responsive */
+/* ===========================
+   📱 Extra Small Phones (≤420px)
+=========================== */
+@media (max-width: 420px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+  .logo-text {
+    font-size: 16px;
+  }
+  .logo-tagline {
+    font-size: 10px;
+  }
+  .h-title {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+  .h-sub {
+    font-size: 14px;
+  }
+  .btn {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+  .hero-card {
+    min-height: 180px;
+  }
+  .section-title {
+    font-size: 22px;
+  }
+  .section-sub {
+    font-size: 14px;
+  }
+  .services-grid, .compare, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================
+   📲 Mobile (421px–768px)
+=========================== */
+@media (max-width: 768px) {
+  
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 32px 16px;
+    text-align: center;
+  }
+  .hero-inner {
+    align-items: center;
+  }
+  .ctas {
+    justify-content: center;
+  }
+
+  /* Sections */
+  .section-title {
+    font-size: 26px;
+  }
+  .section-sub {
+    font-size: 15px;
+  }
+  .services-grid, .compare, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Support & CTA */
+  .support {
+    flex-direction: column;
+    text-align: center;
+  }
+  .support div:last-child {
+    text-align: center;
+  }
+}
+
+/* ===========================
+   💻 Tablet (769px–1024px)
+=========================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 48px 20px;
+  }
+  .section-title {
+    font-size: 30px;
+  }
+  .section-sub {
+    font-size: 16px;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================
+   🖥️ Desktop (≥1025px)
+=========================== */
+@media (min-width: 1025px) {
+  .hero {
+    grid-template-columns: 1fr 460px;
+    padding: 60px 40px;
+  }
+  .section-title {
+    font-size: 34px;
+  }
+  .section-sub {
+    font-size: 18px;
+  }
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===========================
+   🖥️ Large Screens (≥1440px)
+=========================== */
+@media (min-width: 1440px) {
+ 
+  .h-title {
+    font-size: 48px;
+  }
+  .h-sub {
+    font-size: 20px;
+  }
+  .section-title {
+    font-size: 38px;
+  }
+  .section-sub {
+    font-size: 20px;
+  }
+}
+
+
+/* === FAQs (scoped) === */
+.faq-section{
+  --fq-bg:#0b0b0f; --fq-card:#12121a; --fq-border:#24243a; --fq-accent:#9C4DF4;
+  background: linear-gradient(180deg,#0b0b0f, #0d0d14);
+  color:#fff; padding: 80px 24px;
+  
+}
+.faq-wrap{ max-width: 900px; margin: 0 auto; }
+.faq-head{ text-align:center; margin-bottom: 26px; }
+.faq-pill{
+  display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+  background:#171725; color:#b5b9d3; padding:8px 12px; border-radius:999px; border:1px solid #24243a;
+}
+.faq-head h2{ font-size: clamp(28px, 4vw, 42px); font-weight:800; margin-top:10px; }
+.faq-head h2 span{ color: var(--fq-accent); }
+.faq-head p{ color:#cfd2e0; margin-top:8px; }
+
+.faq-list{ display:grid; gap:12px; margin-top: 10px; }
+.faq-item{
+  background: linear-gradient(180deg,#151522, #10101a);
+  border:1px solid var(--fq-border); border-radius:14px; overflow:hidden;
+}
+.faq-q{
+  width:100%; text-align:left; background:transparent; border:0; color:#fff;
+  padding:18px 18px; font-size:16px; font-weight:600; display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer;
+}
+.faq-q i{ transition: transform .25s ease; }
+.faq-item.open .faq-q i{ transform: rotate(180deg); }
+
+.faq-a{
+  display:grid; grid-template-rows: 0fr; transition: grid-template-rows .28s ease;
+}
+.faq-a > p{
+  overflow:hidden; margin:0; padding:0 18px 0; color:#cfd2e0; line-height:1.65; font-size:14px;
+}
+.faq-item.open .faq-a{ grid-template-rows: 1fr; }
+.faq-item.open .faq-a > p{ padding: 0 18px 16px; }
+
+.faq-item:hover{ border-color:#3b2d70; box-shadow: 0 12px 30px rgba(156,77,244,.14); }
+
+
+
+footer {
+  background-color: #000;
+  padding: 60px 20px 30px;
+  
+  
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.footer-section p {
+  line-height: 1.8;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.about-button {
+  display: inline-block;
+  background: #9C4DF4;
+  padding: 10px 25px;
+  border-radius: 30px;
+  margin-top: 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.about-button:hover {
+  background: #7f3de1;
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #9C4DF4;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a img {
+  width: 35px;
+  height: 35px;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* responsiveness for footer*/
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .footer-container {
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .footer-section {
+    flex: 1 1 45%;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+  }
+
+  .about-button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+    
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+    padding: 20px;
+    background-color: #111; /* slight contrast */
+    border-radius: 10px;
+  }
+
+  .footer-logo {
+    display: block;
+    margin: 0 auto 15px;
+  }
+
+  .footer-section h3 {
+    font-size: 17px;
+    color: #9C4DF4;
+    border-bottom: 2px solid #9C4DF4;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 8px;
+    color: #ccc;
+  }
+
+  .footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section ul li a:hover {
+    color: #9C4DF4;
+  }
+
+  .about-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  .contact-info p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+  }
+
+  .social-icons a img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 13px;
+    border-top: 1px solid #333;
+    color: #888;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .footer-section {
+    padding: 15px;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+  }
+
+  .footer-section p,
+  .footer-section ul li,
+  .contact-info p {
+    font-size: 13px;
+  }
+
+  .about-button {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+  .social-icons a img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+    
+  }
+}
+
+</style>
+
 </head>
 <body>
-
-<!-- ✅ Navbar -->
 <header class="navbar">
-  <a href="/" class="logo-link">
-    <div class="logo">
-      <img src="/images/ChatGPT Image Aug 20, 2025, 03_59_59 PM.png" alt="iConnecto Logo" class="logo-img" />
-      <div class="logo-text-block">
-        <div class="logo-text">iconnecto</div>
-        <div class="logo-tagline">Driven to Deliver, Connected to You</div>
-      </div>
+     <a href="/" class="logo-link">
+  <div class="logo">
+    <img src="/images/ChatGPT Image Aug 20, 2025, 03_59_59 PM.png" alt="iConnecto Logo" class="logo-img" />
+    <div class="logo-text-block">
+      <div class="logo-text">iconnecto</div>
+      <div class="logo-tagline">Driven to Deliver, Connected to You</div>
     </div>
+  </div>
+</a>
+<!-- Hamburger Icon (for small screens) -->
+<div class="hamburger" id="hamburger">
+  <i class="fas fa-bars"></i>
+</div>
+
+
+
+<nav class="nav-links">
+  <ul>
+   
+
+
+   <li class="dropdown">
+  <a href="#" class="">
+    Services <i class="fas fa-chevron-down"></i>
   </a>
-  <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+  <ul class="dropdown-menu">
+    <li><a href="/ser.html">Web Development</a></li>
+    <li><a href="/shopy.html">Shopify Store Management</a></li>
+    <li><a href="pages/data-entry.html">Data Entry</a></li>
+    <li><a href="pages/graphic-design.html">Graphic Design</a></li>
+     <li><a href="pages/web-development.html">Web Development</a></li>
+    <li><a href="pages/shopify.html">Shopify Store Management</a></li>
+    <li><a href="pages/data-entry.html">Data Entry</a></li>
+    <li><a href="pages/graphic-design.html">Graphic Design</a></li>
+    
+  </ul>
+</li>
 
-  <nav class="nav-links">
-    <ul>
-      <li class="dropdown">
-        <a href="#">Services <i class="fas fa-chevron-down"></i></a>
-        <ul class="dropdown-menu">
-          <li><a href="/ser.html">Web Development</a></li>
-          <li><a href="/shopy.html">Shopify Store Management</a></li>
-          <li><a href="/data-entry.html">Data Entry</a></li>
-          <li><a href="/graphic-design.html">Graphic Design</a></li>
-        </ul>
-      </li>
-      <li><a href="../pages/blogs.html" class="nav-link">Blogs</a></li>
-      <li><a href="/referral_rewards_app/referral_rewards_app/public/reward.html" class="nav-link">Reward</a></li>
-      <li><a href="about-us.html" class="nav-link">About Us</a></li>
-      <li><a href="contact-us.html" class="nav-link">Contact Us</a></li>
-      <li>
-        <a href="https://wa.me/923484243795" target="_blank" class="nav-link">
-          <i class="fab fa-whatsapp"></i> +92 348 4243795
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
+    <li><a href="#" class="nav-link">Blogs</a></li>
+    <li><a href="/referral_rewards_app/referral_rewards_app/public/reward.html" class="nav-link">Reward</a></li>
 
+      <li><a href="pages/about-us.html" class="nav-link">About Us</a></li>
+    <li><a href="pages/contact-us.html" class="nav-link">Contact Us</a></li>
+    <li>
+      <a href="https://wa.me/923484243795" target="_blank" class="nav-link">
+        <i class="fab fa-whatsapp"></i> +92 348 4243795
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+ </header>
 <div class="wrap">
 
-  <!-- ✅ HERO (no image) -->
-  <header class="hero">
-    <h1 class="h-title">Data Entry Services That Save Time</h1>
-    <p class="h-sub">
-      Get accurate, reliable, and fast data entry solutions tailored for businesses of all sizes. Focus on growing your business while we handle the details.
-    </p>
-    <div class="ctas">
-      <a class="btn primary" href="../pages/contact-us.html">Get Started</a>
-      <a class="btn secondary" href="#services">Explore Services</a>
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Hero">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <h1 class="h-title">Professional Data Entry Services for Accuracy & Speed</h1>
+        <p class="h-sub">
+          Save time and reduce errors with our expert data entry solutions. We handle bulk data entry,
+          data cleaning, formatting, and database management so you can focus on making better
+          business decisions with accurate information.
+        </p>
+      </div>
+
+      <div class="ctas fade-up fade-delay-1" style="margin-top:6px">
+        <a class="btn primary" href="/contact" title="Get Data Entry Help">Get Started</a>
+        <a class="btn secondary" href="#services" title="Explore data entry services">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-card fade-up fade-delay-2" aria-hidden="true">
+      <img src="/images/service.data entry image1.jpg" alt="Data entry illustration">
     </div>
   </header>
 
-  <!-- ✅ Why Data Entry with iConnecto -->
-  <section>
-    <div class="section-head">
-      <h2 class="section-title">Why Choose iConnecto for Data Entry?</h2>
-      <p class="section-sub">We deliver precision, confidentiality, and efficiency in every project. From bulk data processing to detailed entry tasks, we’ve got you covered.</p>
-    </div>
-    <div class="grid-3">
-      <div class="service-card">
-        <div class="title">Accuracy First</div>
-        <p>We maintain strict quality checks to ensure every entry is correct, reducing costly mistakes.</p>
-      </div>
-      <div class="service-card">
-        <div class="title">Scalable Solutions</div>
-        <p>Whether you need small tasks or large projects, our team adapts to your requirements.</p>
-      </div>
-      <div class="service-card">
-        <div class="title">Secure Handling</div>
-        <p>Your business data is safe with us — we prioritize confidentiality and secure practices.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ✅ Data Entry Services -->
-  <section id="services">
-    <div class="section-head">
-      <h2 class="section-title">Our Data Entry Services</h2>
-      <p class="section-sub">A full range of services to streamline your business operations and save valuable time.</p>
-    </div>
-    <div class="grid-3">
-      <div class="service-card">
-        <div class="title">Online & Offline Data Entry</div>
-        <p>Efficient entry of business data from various sources into digital systems.</p>
-        <a class="learn" href="#">Learn more →</a>
-      </div>
-      <div class="service-card">
-        <div class="title">Data Cleaning & Validation</div>
-        <p>We refine, validate, and clean data to keep your databases consistent and usable.</p>
-        <a class="learn" href="#">Learn more →</a>
-      </div>
-      <div class="service-card">
-        <div class="title">Excel & Spreadsheet Management</div>
-        <p>Professional handling of complex spreadsheets, formatting, and analysis-ready data.</p>
-        <a class="learn" href="#">Learn more →</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ✅ Final CTA -->
-  <section>
-    <div class="final-cta" style="text-align:center;max-width:700px;margin:0 auto;">
-      <h2>Focus on Growth, We Handle Your Data</h2>
-      <p>Let iConnecto take care of repetitive data entry tasks while you scale your business operations.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
-        <a class="btn primary" href="../pages/contact-us.html">Get a Free Quote</a>
-        <a class="btn secondary" href="mailto:hello@iconecto.net">Email Us</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- ✅ Footer -->
+    <!-- Custom vs Template -->
+  <!-- Manual vs Automated -->
+<section class="custom-template-section">
+  <!-- Left Side: Image -->
+  <div class="custom-template-image">
+    <img src="/images/Data-Entry-Services1.jpg" alt="Manual vs Automated Data Entry">
+  </div>
+
+  <!-- Right Side: Text -->
+  <div class="custom-template-text">
+    <h2 class="section-title">Manual Data Entry vs Automation</h2>
+    <p>
+      While automated tools can speed up processing, they often miss context and introduce
+      errors when handling complex or unstructured data. Our expert team combines manual
+      precision with smart automation to ensure accuracy, consistency, and efficiency —
+      giving you reliable, well-organized data that drives better decision-making.
+    </p>
+  </div>
+</section>
+
+
+
+
+
+<!-- Why Choose iConnecto -->
+<section aria-labelledby="why-title">
+  <div class="section-head">
+    <div>
+      <h2 id="why-title" class="section-title">Why Choose iConnecto for Data Entry</h2>
+      <p class="section-sub">
+        We don’t just type data — we organize, validate, and transform it into a powerful business asset that supports decision-making.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:16px">
+    <div class="feature fade-up">
+      <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13;"></div>
+      <h4 style="color: white;">High Accuracy</h4>
+      <p style="color:var(--muted)">Our experts ensure 99%+ accuracy through manual validation and double-checking to prevent costly errors.</p>
+    </div>
+
+    <div class="feature fade-up fade-delay-1">
+      <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
+      <h4 style="color: white;">Scalable Teams</h4>
+      <p style="color:var(--muted)">Whether you need one-time data cleanup or ongoing large-scale entry, we scale resources to meet your deadlines.</p>
+    </div>
+
+    <div class="feature fade-up fade-delay-2">
+      <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
+      <h4 style="color: white;">Secure Handling</h4>
+      <p style="color:var(--muted)">We follow strict confidentiality protocols to ensure your sensitive business data stays safe and protected.</p>
+    </div>
+  </div>
+
+  <div class="grid-3" style="margin-top:16px">
+    <div class="feature fade-up">
+      <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
+      <h4 style="color: white;">Multi-Format Expertise</h4>
+      <p style="color:var(--muted)">We handle spreadsheets, CRMs, ERPs, and custom platforms with equal efficiency.</p>
+    </div>
+
+    <div class="feature fade-up fade-delay-1">
+      <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
+      <h4 style="color: white;">Quick Turnaround</h4>
+      <p style="color:var(--muted)">Fast processing without compromising quality — ideal for time-sensitive projects.</p>
+    </div>
+
+    <div class="feature fade-up fade-delay-2">
+      <div style="height:44px;width:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c6df7);opacity:.13"></div>
+      <h4 style="color: white;">Cost-Effective</h4>
+      <p style="color:var(--muted)">Affordable pricing models that fit startups, SMEs, and enterprises while delivering measurable value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="services-section">
+  <!-- Left Side: Image -->
+  <div class="services-image">
+    <img src="/images/Data-Entry-Services1.jpg" alt="Data Entry Services">
+  </div>
+
+  <!-- Right Side: Text -->
+  <div class="services-content">
+    <h2 class="section-title">Our Data Entry Services</h2>
+    <p class="section-sub">
+      From data collection to database management, we provide accurate, fast, and secure data entry solutions. Our team supports manual and automated data input, cleansing, and formatting to keep your information reliable and actionable.
+    </p>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="services-section">
+  <!-- Left Side: Text -->
+  <div class="services-content">
+    <h2 class="section-title">Our Data Entry Services</h2>
+    <p class="section-sub">
+      From product listing to document digitization, we handle repetitive tasks so your team can focus on growth. Our processes ensure accuracy, speed, and compliance with your data standards.
+    </p>
+  </div>
+
+  <!-- Right Side: Image -->
+  <div class="services-image">
+    <img src="/images/data-entry-services-2.jpeg" alt="Data Entry Solutions">
+  </div>
+</section>
+
+<!-- Support -->
+<section aria-labelledby="support-title">
+  <h2 id="support-title" class="section-title">Ongoing Support & Quality Assurance</h2>
+  <div style="margin-top:12px" class="support fade-up">
+    <div>
+      <h4 style="color: black;">Dedicated Helpdesk</h4>
+      <p style="margin-top:6px; color: black;">Our team is available to resolve any data-related issues quickly. Regular audits ensure your database stays clean, updated, and reliable.</p>
+    </div>
+    <div style="min-width:160px;text-align:right">
+      <a class="btn primary" href="/contact" title="Contact support">Get Support</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- === FAQs === -->
+<section class="faq-section" id="faqs">
+  <div class="faq-wrap">
+    <div class="faq-head">
+      <span class="faq-pill">Have Questions?</span>
+      <h2>Frequently Asked <span>Questions</span></h2>
+      <p>Quick answers about pricing, timelines, onboarding, and support.</p>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <article class="faq-item">
+        <button class="faq-q">
+          How fast can you start on my project?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>Discovery call within 24 hours. Most projects kick off within 2–5 business days after scope approval.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-q">
+          Do you offer trial periods for Virtual Assistants?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>Yes — a 1–2 week pilot is available to verify fit, communication, and quality before scaling.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-q">
+          What tools do you work with?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>We adapt to your stack — Google Workspace, Microsoft 365, Slack, Asana, Trello, Notion, Shopify, WordPress, HubSpot, CRM and more.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-q">
+          How do you ensure confidentiality and security?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>NDAs, role-based permissions, SOPs, password vaults, and secure handover. We follow least-privilege access.</p>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-q">
+          Can I scale up or down anytime?
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="faq-a">
+          <p>Absolutely. Choose hourly, part-time, or full-time. Adjust monthly as needs change.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Tiny JS for FAQ accordion (put once, after your other scripts) -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const items = document.querySelectorAll('#faqList .faq-item .faq-q');
+  items.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const parent = btn.closest('.faq-item');
+      // close others (accordion behavior)
+      document.querySelectorAll('#faqList .faq-item.open').forEach(el=>{
+        if(el!==parent) el.classList.remove('open');
+      });
+      parent.classList.toggle('open');
+    });
+  });
+});
+</script>
+
+
+
+   <!-- Footer Start -->
   <footer>
-    <div>© <span id="yr"></span> © 2025 iConnecto. All rights reserved. Designed and developed by Abuhuraira.</div>
+    <div class="footer-container">
+
+      <!-- Logo and About -->
+      <div class="footer-section">
+        <img src="/images/ChatGPT Image Aug 20, 2025, 03_59_59 PM.png" alt="iConnecto Logo" class="footer-logo">
+        <p>
+         “At iConnecto, we pride ourselves on being highly professional and responsive. We take the time to understand each client’s unique business needs and deliver customized web development solutions that go beyond expectations with exceptional precision and quality.”
+        </p>
+        <a href="/pages/about_us.html" class="about-button">ABOUT US</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+           <li><a href="/services.html" class="nav-link">Services</a></li>
+    <li><a href="#" class="nav-link">Blogs</a></li>
+      <li><a href="/about_us.html" class="nav-link">About Us</a></li>
+    <li><a href="/contact_us.html" class="nav-link">Contact Us</a></li>
+    <li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li>Data Entry</li>
+          <li>Web Development</li>
+          <li>Graphic Designing</li>
+          <li>Virtual Assistant</li>
+          <li>SEO</li>
+          <li>Customer Support</li>
+          <li>Social Media Management</li>
+          <li>Outsourcing Partnership</li>
+          <li>Shopify & WordPress Store</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-section contact-info">
+        <h3>Contact Us</h3>
+        <p>
+  📞 <a href="https://wa.me/923484243795" target="_blank" style="color: #ccc; text-decoration: none;">
+    +92 348 4243795
+  </a>
+</p>
+
+           <p>
+  💬 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sibghat@iconnecto.net" target="_blank" style="color: #ccc; text-decoration: none;">
+   sibghat@iconnecto.net
+  </a>
+</p>
+
+        <div class="social-icons">
+          <a href="https://www.facebook.com/iConnecto/" target="_blank"><img src="/images/facebook.webp" alt="Facebook"></a>
+          <a href="https://www.linkedin.com/company/iconnecto/" target="_blank"><img src="/images/linkdin.logo.webp" alt="LinkedIn"></a>
+          <a href="https://www.instagram.com/sibghat.iconnecto/" target="_blank"><img src="/images/instagram-logo-instagram-social-media-icon-free-png-removebg-preview.png" alt="Instagram"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom"  id="footer-trigger">
+© 2025 iConnecto. All rights reserved. Designed and developed by Abuhuraira.
+
+    </div>
   </footer>
+  <!-- Footer End -->
+
+
+
+
+
+
+    
+
+  <script>
+
+    
+    // small JS: set year and reveal simple fade-up elements when visible
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Intersection observer for fade-up on scroll (graceful, small)
+    (function(){
+      const els = document.querySelectorAll('.fade-up');
+      if(!('IntersectionObserver' in window)) {
+        els.forEach(e=>e.classList.add('visible'));
+        return;
+      }
+      const io = new IntersectionObserver((items)=>{
+        items.forEach(i=>{
+          if(i.isIntersecting){ i.target.style.animationPlayState = 'running'; i.target.classList.add('visible'); io.unobserve(i.target) }
+        });
+      },{threshold:0.14});
+      els.forEach(e=>{
+        e.style.animationPlayState='paused';
+        io.observe(e);
+      });
+    })();
+
+ </script>
+
+ <!-- Modal -->
+<style>
+/* Modal overlay */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* dark background */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+/* Modal content */
+.modal iframe {
+  width: 90%;
+  max-width: 800px;
+  height: 80%;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
+/* Book a Meeting button */
+.floating-book-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 3px;
+  background: #8b5cf6;
+  color: white;
+  display: none; /* hidden by default */
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  z-index: 9999;
+  opacity: 0;
+  transition: background 0.3s ease, transform 0.2s ease, opacity 0.5s ease;
+}
+
+.floating-book-btn:hover {
+  background: #7c3aed;
+  transform: scale(1.05);
+}
+
+.floating-book-btn.show {
+  display: flex;
+  opacity: 1;
+}
+
+
+/* Default styles already defined above for book a meeting */
+
+@media (max-width: 749px) {
+  .floating-book-btn {
+    position: fixed;
+    bottom: 14px;
+    right: 14px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    font-size: 0;
+    border-radius: 50%;
+    background-color: #5d3fd3;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .floating-book-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .floating-book-btn::after {
+    content: "Book a Meeting";
+    position: absolute;
+    right: 60px;
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .floating-book-btn:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+/* responsivness for copyright text */
+  
+@media (max-width: 600px) {
+  .footer-bottom {
+    padding-bottom: 50px; /* Space to prevent overlap */
+  }
+
+  .floating-book-btn {
+    bottom: 20px; /* Keep the button above the footer space */
+  }
+}
+.floating-book-btn {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
+.floating-book-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+</style>
+
+<!-- Button -->
+<button class="floating-book-btn" onclick="openModal()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M8 7V3M16 7V3M4 11h16M5 20h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v11a2 2 0 002 2z"/>
+  </svg>
+  Book a Meeting
+</button>
+
+<!-- Modal -->
+<div id="calendarModal" class="modal">
+  <div class="close-btn" onclick="closeModal()">✖</div>
+  <iframe src="https://calendly.com/sibghat-iconnecto"></iframe>
 </div>
 
 <script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
+function openModal() {
+  document.getElementById("calendarModal").style.display = "flex";
+}
+function closeModal() {
+  document.getElementById("calendarModal").style.display = "none";
+}
 
-  // Hamburger toggle
-  document.addEventListener("DOMContentLoaded", () => {
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
+// Hide floating button near footer
+document.addEventListener("DOMContentLoaded", function () {
+  const floatingBtn = document.querySelector('.floating-book-btn');
+  const footerTrigger = document.getElementById('footer-trigger');
+
+  if (floatingBtn && footerTrigger) {
+    const footerObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        floatingBtn.style.display = entry.isIntersecting ? 'none' : 'flex';
       });
-    }
-  });
+    });
 
-  // Dropdown toggle for mobile
-  document.addEventListener("DOMContentLoaded", () => {
-    const dropdown = document.querySelector(".dropdown");
-    const dropdownLink = dropdown?.querySelector("a");
-    const dropdownMenu = dropdown?.querySelector(".dropdown-menu");
+    footerObserver.observe(footerTrigger);
+  }
+});
 
-    if (dropdown && dropdownLink && dropdownMenu) {
-      dropdownLink.addEventListener("click", (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          dropdownMenu.classList.toggle("show");
-          dropdown.classList.toggle("open");
-        }
-      });
-    }
+
+  // Mobile dropdown toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const dropdownLink = dropdown?.querySelector("a");
+  const dropdownMenu = dropdown?.querySelector(".dropdown-menu");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (dropdown && dropdownLink && dropdownMenu) {
+    dropdownLink.addEventListener("click", (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdownMenu.classList.toggle("show"); // toggle list
+        dropdown.classList.toggle("open");     // rotate arrow
+      }
+    });
+  }
+
+  // Close nav when clicking a normal link
+  const navItems = document.querySelectorAll(".nav-links a:not(.dropdown > a)");
+  navItems.forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768 && navLinks.classList.contains("show")) {
+        navLinks.classList.remove("show");
+      }
+    });
   });
+});
+
+// Hamburger menu toggle
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  }
+});
+
 </script>
+
+
 </body>
 </html>
+
