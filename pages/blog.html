@@ -171,6 +171,38 @@ body, html {
   background: #145ea8;
 }
 
+/* Initial hidden state */
+  .blog-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  /* When visible */
+  .blog-card.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Extra direction-based animations */
+  .fade-in-left {
+    transform: translateX(-30px);
+  }
+
+  .fade-in-right {
+    transform: translateX(30px);
+  }
+
+  .fade-in-up {
+    transform: translateY(30px);
+  }
+
+  .blog-card.show.fade-in-left,
+  .blog-card.show.fade-in-right,
+  .blog-card.show.fade-in-up {
+    transform: translate(0, 0);
+  }
+
 /* ----------------- */
 /* RESPONSIVE DESIGN */
 /* ----------------- */
@@ -770,39 +802,6 @@ footer {
   cards.forEach(card => observer.observe(card));
 </script>
 
-<style>
-  /* Initial hidden state */
-  .blog-card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-  }
-
-  /* When visible */
-  .blog-card.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Extra direction-based animations */
-  .fade-in-left {
-    transform: translateX(-30px);
-  }
-
-  .fade-in-right {
-    transform: translateX(30px);
-  }
-
-  .fade-in-up {
-    transform: translateY(30px);
-  }
-
-  .blog-card.show.fade-in-left,
-  .blog-card.show.fade-in-right,
-  .blog-card.show.fade-in-up {
-    transform: translate(0, 0);
-  }
-</style>
 
 
 </body>
