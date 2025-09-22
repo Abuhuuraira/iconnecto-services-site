@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs & Articles — iConnecto</title>
+  <link rel="stylesheet" href="blogs.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+   
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  height: 100%;
+   overflow-x: hidden;
+}
+
+
+/* 🔹 Navbar */
+.navbar{position:sticky;top:0;width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;z-index:10;color:#fff;background:#000}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-img{height:50px;width:auto;object-fit:contain}
+.logo-text-block{display:flex;flex-direction:column;line-height:1.1}
+.logo-text{font-size:20px;font-weight:bold;text-transform:uppercase;color:#fff}
+.logo-tagline{font-size:12px;font-weight:300;color:#ccc}
+.logo-link{text-decoration:none;color:inherit;display:flex;align-items:center}
+.nav-links ul{list-style:none;display:flex;flex-wrap:wrap;gap:20px;font-size:14px;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:purple}
+.call a{color:#fff;font-weight:500;display:flex;align-items:center;gap:6px;font-size:14px;transition:.3s;padding:6px 10px;border-radius:6px}
+.call a:hover{color:#bb86fc;transform:scale(1.08);box-shadow:0 0 8px #bb86fc88;background:rgba(255,255,255,.05)}
+.hamburger{display:none}
+.nav-link{color:#000;text-decoration:none;padding:10px}
+.nav-link.active{color:purple;font-weight:bold;border-bottom:2px solid purple}
+
+
+
+
+/* 🔹 Dropdown */
+.dropdown{position:relative;}
+.dropdown > a i {
+  display: inline-block; /* ensure transform works properly */
+  transform: translateY(1px); /* move arrow 2px down */
+  font-size: 0.75rem; /* keep your original size */
+}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;min-width:220px;background:#000;
+  border-radius:6px;padding:8px 0;z-index:999;}
+.dropdown-menu li{list-style:none;}
+.dropdown-menu li a{display:none;padding:8px 14px;color:white;}
+.dropdown-menu li a:hover{background:#222;color:var(--accent);}
+.dropdown:hover .dropdown-menu li a{display:block;}
+.dropdown i{font-size:.75rem;}
+@media (max-width:768px){
+  .hamburger{display:block;position:absolute;right:20px;top:25px;z-index:20;}
+  .nav-links{display:none;flex-direction:column;background:rgba(0,0,0,.95);
+    position:absolute;top:100%;left:0;width:100%;padding:20px;}
+  .nav-links ul{flex-direction:column;gap:16px;}
+  .nav-links.show{display:flex;}
+  .dropdown-menu{display:none;flex-direction:column;}
+  .dropdown-menu.show{display:flex;}
+  .dropdown.open > a i{transform:rotate(180deg);transition:.3s;}
+}
+@media (max-width:768px){
+  .dropdown-menu{position:static!important;display:block;height:0;overflow:hidden;
+    background:#111;border-radius:6px;margin:0;padding:0;transition:height .3s ease}
+  .dropdown-menu li{list-style:none}
+  .dropdown-menu li a{display:block;padding:10px 16px;color:#fff}
+  .dropdown.open .dropdown-menu{height:auto}
+}
+
+
+/* Blog Section */
+.blog-section {
+  text-align: center;
+   padding: 80px 20px;
+  background: linear-gradient(to bottom, #f9fafb, #ffffff);
+}
+
+.blog-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #0d3b66;
+  margin-bottom: 10px;
+}
+
+.blog-subtitle {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+}
+
+/* Blog Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Blog Card */
+.blog-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(40px);
+  opacity: 0;
+  transition: all 0.6s ease;
+}
+
+.blog-card.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.blog-card:hover .blog-image img {
+  transform: scale(1.05);
+}
+
+.blog-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.blog-content h3 {
+  font-size: 1.3rem;
+  color: #0d3b66;
+  margin-bottom: 10px;
+}
+
+.blog-content p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.read-more {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: #0d3b66;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.read-more i {
+  margin-left: 6px;
+}
+
+.read-more:hover {
+  background: #145ea8;
+}
+
+footer {
+  background-color: #000;
+  padding: 60px 20px 30px;
+  
+  
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+}
+
+.footer-logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.footer-section p {
+  line-height: 1.8;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.about-button {
+  display: inline-block;
+  background: #9C4DF4;
+  padding: 10px 25px;
+  border-radius: 30px;
+  margin-top: 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.about-button:hover {
+  background: #7f3de1;
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #9C4DF4;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a img {
+  width: 35px;
+  height: 35px;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* responsiveness for footer*/
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .footer-container {
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .footer-section {
+    flex: 1 1 45%;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+  }
+
+  .about-button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+    
+  }
+
+  .footer-section {
+    flex: 1 1 100%;
+    padding: 20px;
+    background-color: #111; /* slight contrast */
+    border-radius: 10px;
+  }
+
+  .footer-logo {
+    display: block;
+    margin: 0 auto 15px;
+  }
+
+  .footer-section h3 {
+    font-size: 17px;
+    color: #9C4DF4;
+    border-bottom: 2px solid #9C4DF4;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 8px;
+    color: #ccc;
+  }
+
+  .footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section ul li a:hover {
+    color: #9C4DF4;
+  }
+
+  .about-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  .contact-info p {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .social-icons a {
+    margin: 0 10px;
+  }
+
+  .social-icons a img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    font-size: 13px;
+    border-top: 1px solid #333;
+    color: #888;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .footer-section {
+    padding: 15px;
+  }
+
+  .footer-section h3 {
+    font-size: 16px;
+  }
+
+  .footer-section p,
+  .footer-section ul li,
+  .contact-info p {
+    font-size: 13px;
+  }
+
+  .about-button {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+  .social-icons a img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer-bottom {
+    font-size: 12px;
+    
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+ <header class="navbar">
+     <a href="/" class="logo-link">
+  <div class="logo">
+    <img src="/images/ChatGPT Image Aug 20, 2025, 03_59_59 PM.png" alt="iConnecto Logo" class="logo-img" />
+    <div class="logo-text-block">
+      <div class="logo-text">iconnecto</div>
+      <div class="logo-tagline">Driven to Deliver, Connected to You</div>
+    </div>
+  </div>
+</a>
+<!-- Hamburger Icon (for small screens) -->
+<div class="hamburger" id="hamburger">
+  <i class="fas fa-bars"></i>
+</div>
+
+
+
+<nav class="nav-links">
+  <ul>
+   
+
+
+   <li class="dropdown">
+  <a href="#" class="">
+    Services <i class="fas fa-chevron-down"></i>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="/ser.html">Web Development</a></li>
+    <li><a href="/shopy.html">Shopify Store Management</a></li>
+    <li><a href="pages/data-entry.html">Data Entry</a></li>
+    <li><a href="pages/graphic-design.html">Graphic Design</a></li>
+     <li><a href="pages/web-development.html">Web Development</a></li>
+    <li><a href="pages/shopify.html">Shopify Store Management</a></li>
+    <li><a href="pages/data-entry.html">Data Entry</a></li>
+    <li><a href="pages/graphic-design.html">Graphic Design</a></li>
+    
+  </ul>
+</li>
+
+    <li><a href="#" class="nav-link">Blogs</a></li>
+    <li><a href="/referral_rewards_app/referral_rewards_app/public/reward.html" class="nav-link">Reward</a></li>
+
+      <li><a href="pages/about-us.html" class="nav-link">About Us</a></li>
+    <li><a href="pages/contact-us.html" class="nav-link">Contact Us</a></li>
+    <li>
+      <a href="https://wa.me/923484243795" target="_blank" class="nav-link">
+        <i class="fab fa-whatsapp"></i> +92 348 4243795
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  </header>
+
+  <!-- Blog Section -->
+  <section class="blog-section">
+    <div class="blog-header">
+      <h1>Blogs & Articles</h1>
+      <p class="blog-subtitle">Latest insights, tips, and guides to help you grow your business online</p>
+    </div>
+
+    <div class="blog-grid">
+      <!-- Blog Card 1 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="/images/Our WordPress Development Services1.png" alt="Blog 1">
+        </div>
+        <div class="blog-content">
+          <h3>How to Build a Stunning Website with Next.js</h3>
+          <p>Step-by-step guide to building modern websites with Next.js and Tailwind CSS for performance and scalability.</p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="/images/service.graphic desigin 1.jpg" alt="Blog 2">
+        </div>
+        <div class="blog-content">
+          <h3>Top SEO Tips for 2025</h3>
+          <p>Discover the latest SEO strategies to rank higher on Google and bring more organic traffic to your website.</p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="/images/Professional WordPress Development Services.jpg" alt="Blog 3">
+        </div>
+        <div class="blog-content">
+          <h3>Why Small Businesses Need a Website</h3>
+          <p>Learn why having a website is crucial for small businesses and how to start with a budget-friendly solution.</p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  
+    <div class="blog-grid">
+      <!-- Blog Card 1 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="/images/Our WordPress Development Services1.png" alt="Blog 1">
+        </div>
+        <div class="blog-content">
+          <h3>How to Build a Stunning Website with Next.js</h3>
+          <p>Step-by-step guide to building modern websites with Next.js and Tailwind CSS for performance and scalability.</p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="/images/service.graphic desigin 1.jpg" alt="Blog 2">
+        </div>
+        <div class="blog-content">
+          <h3>Top SEO Tips for 2025</h3>
+          <p>Discover the latest SEO strategies to rank higher on Google and bring more organic traffic to your website.</p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="blog-card">
+        <div class="blog-image">
+          <img src="/images/Professional WordPress Development Services.jpg" alt="Blog 3">
+        </div>
+        <div class="blog-content">
+          <h3>Why Small Businesses Need a Website</h3>
+          <p>Learn why having a website is crucial for small businesses and how to start with a budget-friendly solution.</p>
+          <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Already Made) -->
+  <footer>
+    
+   <!-- Footer Start -->
+  <footer>
+    <div class="footer-container">
+
+      <!-- Logo and About -->
+      <div class="footer-section">
+        <img src="/images/ChatGPT Image Aug 20, 2025, 03_59_59 PM.png" alt="iConnecto Logo" class="footer-logo">
+        <p>
+         “At iConnecto, we pride ourselves on being highly professional and responsive. We take the time to understand each client’s unique business needs and deliver customized web development solutions that go beyond expectations with exceptional precision and quality.”
+        </p>
+        <a href="/pages/about_us.html" class="about-button">ABOUT US</a>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+           <li><a href="/services.html" class="nav-link">Services</a></li>
+    <li><a href="#" class="nav-link">Blogs</a></li>
+      <li><a href="/about_us.html" class="nav-link">About Us</a></li>
+    <li><a href="/contact_us.html" class="nav-link">Contact Us</a></li>
+    <li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li>Data Entry</li>
+          <li>Web Development</li>
+          <li>Graphic Designing</li>
+          <li>Virtual Assistant</li>
+          <li>SEO</li>
+          <li>Customer Support</li>
+          <li>Social Media Management</li>
+          <li>Outsourcing Partnership</li>
+          <li>Shopify & WordPress Store</li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-section contact-info">
+        <h3>Contact Us</h3>
+        <p>
+  📞 <a href="https://wa.me/923484243795" target="_blank" style="color: #ccc; text-decoration: none;">
+    +92 348 4243795
+  </a>
+</p>
+
+           <p>
+  💬 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sibghat@iconnecto.net" target="_blank" style="color: #ccc; text-decoration: none;">
+   sibghat@iconnecto.net
+  </a>
+</p>
+
+        <div class="social-icons">
+          <a href="https://www.facebook.com/iConnecto/" target="_blank"><img src="/images/facebook.webp" alt="Facebook"></a>
+          <a href="https://www.linkedin.com/company/iconnecto/" target="_blank"><img src="/images/linkdin.logo.webp" alt="LinkedIn"></a>
+          <a href="https://www.instagram.com/sibghat.iconnecto/" target="_blank"><img src="/images/instagram-logo-instagram-social-media-icon-free-png-removebg-preview.png" alt="Instagram"></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom"  id="footer-trigger">
+© 2025 iConnecto. All rights reserved. Designed and developed by Abuhuraira.
+
+    </div>
+  </footer>
+  <!-- Footer End -->
+  </footer>
+
+  <script>
+
+  // 🔥 Unique Scroll Animation for Blog Cards
+  const cards = document.querySelectorAll('.blog-card');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Add a small delay for a "staggered" effect
+        setTimeout(() => {
+          // Pick a random animation direction
+          const directions = ['fade-in-left', 'fade-in-right', 'fade-in-up'];
+          const randomDirection = directions[Math.floor(Math.random() * directions.length)];
+
+          entry.target.classList.add('show', randomDirection);
+        }, index * 150); // 150ms delay per card
+
+        observer.unobserve(entry.target); // animate once
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+</script>
+
+<style>
+  /* Initial hidden state */
+  .blog-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+  }
+
+  /* When visible */
+  .blog-card.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Extra direction-based animations */
+  .fade-in-left {
+    transform: translateX(-30px);
+  }
+
+  .fade-in-right {
+    transform: translateX(30px);
+  }
+
+  .fade-in-up {
+    transform: translateY(30px);
+  }
+
+  .blog-card.show.fade-in-left,
+  .blog-card.show.fade-in-right,
+  .blog-card.show.fade-in-up {
+    transform: translate(0, 0);
+  }
+</style>
+
+
+</body>
+</html>
