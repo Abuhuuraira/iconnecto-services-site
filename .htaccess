@@ -20,3 +20,4 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)$ pages/$1.html [L]
+ReewriteRule ^([^/]+)$ blogs/$1.html [L]
