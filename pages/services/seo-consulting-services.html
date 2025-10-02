@@ -94,7 +94,14 @@ a{color:inherit;text-decoration:none}
 
     /* gradient text animation */
     background: linear-gradient(90deg, #a855f7, #6366f1, #9333ea);
-    -webkit-background-clip: text;
+  .gradient-text {
+  background: linear-gradient(90deg, #a855f7, #6366f1, #9333ea);
+  background-clip: text;          /* standard property */
+  -webkit-background-clip: text;  /* for Safari/Chrome */
+  color: transparent;             /* fallback */
+  -webkit-text-fill-color: transparent; /* needed for Safari */
+}
+
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
     animation: gradient-move 4s linear infinite;
